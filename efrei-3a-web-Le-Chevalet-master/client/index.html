@@ -12,111 +12,117 @@
 
   <script type="text/javascript" src="script.js"></script>
   <script src="https://kit.fontawesome.com/5804e4d8f3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <button onclick="topFunction()" id="top-button" title="back-to-top"><i class="fa fa-angle-up"></i></button>
-  <div id="app">
 
-    <header>
-      <h1>Chez Victor et Victorine</h1>
-      <nav id="block-nav-deco">
-        <router-link to='/' id="nav-deco">Accueil</router-link>
-        <router-link to='/panier' id="nav-deco">Panier</router-link>
-      </nav>
-    </header>
-    <main>
-      <router-view :articles="articles" :panier="panier" @add-article="addArticle" @put-in-panier="putInPanier"
-        @remove-from-panier="removeFromPanier" @add-to-panier="addToPanier" @delete-article="deleteArticle"
-        @update-article="updateArticle"></router-view>
-    </main>
+  <div class="container" id="home">
+
+      <button onclick="topFunction()" id="top-button" title="back-to-top"><i class="fa fa-angle-up"></i></button>
+
+      <div class="header">
+          <div class="logo">
+              <a href="home.html">EastAsia</a>
+          </div>
+          <div class="header-items">
+              <ul>
+                  <li><a class="here" href="home.html">home</a></li>
+                  <li><a href="china.html">china</a></li>
+                  <li><a href="vietnam.html">vietnam</a></li>
+                  <li><a href="more.html">more</a></li>
+                  <li><a href="your-turn.html">Your turn</a></li>
+                  <li><a href="gallery.html">Gallery</a></li>
+                  <li><a href="what-about-us.html">our team</a></li>
+              </ul>
+          </div>
+      </div>
+
+      <div class="image-banniere-home">
+          <div class="contenu-banniere">
+              <h1>The world is beautiful<br>
+                  <span>Come with us to visit Asia.<span></h1>
+
+              <button class="speed-btn">
+                  <a href="#page">explore</a>
+              </button>
+
+          </div>
+      </div>
+
+      <div class="page" id="page">
+          <h1 class="title">take a look</h1>
+          <p>In order to have an overview of what our website has to offer, we have decided to make you discover Asia
+              with 2 countries: China and Vietnam. <br>
+              The third page will be dedicated to a little game that will allow you to learn some
+              famous Asian cities. You can also access to the gallery and other countries with the nav-bar.
+          </p>
+          <div class="all-page">
+              <div class="all-page-item">
+                  <h3 class="sous-titre">China</h3>
+                  <a href="china.html" class="china-touch">
+                      <img src="ac-pic/china.jpeg" alt="china picture">
+                  </a>
+                  <p>The heart of south-east asia, a must visit place.</p>
+              </div>
+              <div class="all-page-item">
+                  <h3 class="sous-titre">Vietnam</h3>
+                  <a href="vietnam.html" class="viet-touch">
+                      <img src="ac-pic/vietnam.jpg" alt="vietnam picture">
+                  </a>
+                  <p>Vietnam, the home of the nem, you can't get wrong.</p>
+              </div>
+              <div class="all-page-item">
+                  <h3 class="sous-titre">It's your turn</h3>
+                  <a href="your-turn.html" class="turn-touch">
+                      <img src="ac-pic/jeu.jpg" alt="firework picture">
+                  </a>
+
+                  <p>Try to find the best word in order to save the asian warrior from death.</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="footer">
+          <div class="footer-wrapper">
+              <div class="data-footer" id="contacts">
+                  <h2>EastAsia</h2>
+                  <ul>
+                      <li><a href="tel:123-456-7890">123-456-7890</a></li>
+                      <li><a href="mailto:eastasia@efrei.net">eastasia@efrei.net</a></li>
+                      <br>
+                      <li>
+                          <address> 24 Lincoln Street, USA</address>
+                      </li>
+                  </ul>
+              </div>
+              <div class="data-footer">
+                  <h2>Navigation</h2>
+                  <ul>
+                      <li><a href="china.html">china</a></li>
+                      <li><a href="vietnam.html">vietnam</a></li>
+                      <li><a href="more.html">more</a></li>
+                      <li><a href="your-turn.html">Your turn</a></li>
+                      <li><a href="gallery.html">Gallery</a></li>
+                      <li><a href="what-about-us.html">our team</a></li>
+                  </ul>
+              </div>
+              <div class="data-footer">
+                  <h2>Our socials</h2>
+                  <ul>
+                      <li><a href="https://www.facebook.com/chinadaily/">Facebook</a></li>
+                      <li><a href="https://twitter.com/chinargcn">Twitter</a></li>
+                      <li><a href="https://www.instagram.com/chinatownmarket/?hl=en">Instagram</a></li>
+                      <li><a href="https://www.youtube.com/user/deutschewelleenglish">Youtube</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <div class="footer-home">
+          <a href="#">© 2020 Victor GARNIER and William LI</a>
+      </div>
   </div>
-
-  <script src="/vue-application.js"></script>
 </body>
-
-<style>
-  html {
-    scroll-behavior: smooth;
-}
-  body {
-    background-image: url(img/Boutique.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-
-    background-size: cover;
-  }
-
-  #app{
-    width: 1100px;
-    background-color: rgb(245, 245, 220,0.5);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  h1 {
-    text-align: center;
-    font-size: 50px;
-    
-
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-    color: black;
-
-    text-decoration: underline;
-    text-transform: uppercase;
-  }
-
-  #nav-deco {
-    display: block;
-    text-align: center;
-    cursor: pointer;
-    color: black;
-
-
-    text-transform: uppercase;
-    text-decoration: none;
-    margin: 10px;
-  }
-
-  #nav-deco:hover {
-    text-decoration: underline;
-  }
-
-  #block-nav-deco {
-    display: flex;
-    justify-content: center;
-
-  }
-
-
-  /*//////// UP BTN ////// */
-
-  #top-button {
-    border: none;
-    outline: none;
-    background-color: #5a5a5abb;
-    opacity: 0.8;
-    color: #fff;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    bottom: 30px;
-    position: fixed;
-    right: 30px;
-    z-index: 9;
-    transition: all 0.5s;
-  }
-
-  #top-button:hover {
-    color: #5a5a5abb;
-    background-color: #fff;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #5a5a5abb;
-    transition: all 0.7s;
-  }
-</style>
 
 </html>

@@ -1,0 +1,366 @@
+* Page font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* Logo font */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+/* ALL PAGE - HEADERS - BIG FOOTER - LITTLE FOOTER _ MEDIA RESPONSIVE - HOME - CHINA/VIETNAM - MORE - YOUR TURN - GALLERY - ABOUT US */
+
+/* //////////////////////////////////////////////////////// FOR ALL PAGES /////////////////////////////////////////////////////// */
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+}
+
+h1.title {
+    color: #444444;
+    text-transform: uppercase;
+    font-size: 38px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #383f4e9c;
+}
+
+.container {
+    position: relative;
+}
+
+.here {
+    border-bottom: 1.5px solid #fff;
+}
+
+/*//////// UP BTN ////// */
+
+#top-button {
+    border: none;
+    outline: none;
+    background-color: #5a5a5abb;
+    opacity: 0.8;
+    color: #fff;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    bottom: 30px;
+    position: fixed;
+    right: 30px;
+    z-index: 9;
+    transition: all 0.5s;
+}
+
+#top-button:hover {
+    color: #5a5a5abb;
+    background-color: #fff;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #5a5a5abb;
+    transition: all 0.7s;
+}
+
+/* HEADER */
+
+.header{
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #5a5a5abb;
+    position: fixed;
+}
+
+.header .header-items ul{
+    display: flex;
+}
+
+.header .header-items ul li{
+    margin: 0 10px;
+}
+
+/* This button is located at the home page and is used in order to access to the different page overview*/
+
+.speed-btn {
+    background: none;
+    font-size: 22px;
+    color: white;
+    text-decoration: none;
+    border: 1.5px solid #fff;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+    text-transform: uppercase;
+    padding: 12px, 20px;
+    min-width: 130px;
+    margin: 10px;
+}
+
+.speed-btn:hover {
+    color: #fff;
+}
+
+.speed-btn::before {
+    content: "";
+    position: absolute;
+    background: rgb(15, 161, 172);
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: 0 0;
+    transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+    transform: scaleY(0);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+.speed-btn:hover::before {
+    transform: scaleY(1);
+
+}
+
+.speed-btn a {
+    color: #fff;
+}
+
+/* Design scroll bar in the side*/
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #fff;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background: #5a5a5abb;
+}
+
+.author {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 25px;
+    padding-right: 70px;
+}
+
+/* //////////////////////////////////////////////// BIG FOOTER /////////////////////////://////////////////////////////////// */
+
+.footer-wrapper {
+    width: 1100px;
+    margin-left: 40px;
+    display: flex;
+}
+
+.data-footer {
+    width: 33%;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+
+}
+
+.data-footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+.data-footer ul a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 12px;
+    color: #fff;
+}
+
+#contacts {
+    font-size: 14px;
+}
+
+.data-footer ul a:hover {
+    color: #888888fd;
+    margin-left: 15px;
+    transition: all .6s;
+}
+
+.data-footer p {
+    width: 70%;
+}
+
+.footer {
+    width: 100%;
+    height: 250px;
+    bottom: 0;
+    background-color: #262626;
+    z-index: -1;
+    display: flex;
+}
+
+/* //////////////////////////////////////////////    LITTLE FOOTER  //////////////////////////////////////////////////////// */
+
+
+
+.footer-home {
+    width: 100%;
+    text-align: center;
+    background: #131212;
+    padding: 20px 0;
+}
+
+
+.footer-home a {
+    color: #fff;
+}
+
+/* //////////////////////////////////////////////// HOME PAGE ////////////////////////////////////////////////////////////// */
+
+/* Image de bannière */
+.image-banniere-home {
+    background: url('ac-pic/bg-img2.jpg') no-repeat top center;
+    background-size: cover;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgb(92, 92, 92) 1px 1px 3px;
+}
+
+.header .header-items ul li a {
+    text-transform: uppercase;
+    color: #fff;
+
+}
+
+.header .header-items ul li a:hover {
+    text-transform: uppercase;
+    color: rgb(15, 161, 172);
+    transition: all 0.3s;
+}
+
+.logo a {
+    font-size: 39px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Lobster', cursive;
+}
+
+.logo a:hover {
+    color: rgb(15, 161, 172);
+    transition: all 0.6s;
+}
+
+
+.contenu-banniere {
+    text-align: center;
+    color: rgb(15, 161, 172);
+    opacity: 0.95;
+}
+
+.contenu-banniere h1 {
+    text-transform: uppercase;
+    line-height: 39px;
+    margin-bottom: 16px;
+}
+
+.contenu-banniere h1 span {
+
+    color: #fff;
+}
+
+.page {
+    background: #f5f5f5;
+    text-align: center;
+    padding: 5% 10%;
+}
+
+.all-page {
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.all-page .all-page-item {
+    width: 30%;
+}
+
+.all-page .all-page-item img {
+    width: 100%;
+    margin-bottom: 25px;
+    box-shadow: grey 1px 2px 3px;
+    border-radius: 4%;
+}
+
+.all-page .all-page-item h3 {
+    margin-bottom: 15px;
+    color: rgb(15, 161, 172);
+
+}
+
+.turn-touch img:hover,
+.viet-touch img:hover,
+.china-touch img:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+    transition: all 0.4s;
+
+}
+
+@media (max-width: 725px) {
+
+    #top-button {
+        width: 35px;
+        height: 35px;
+    }
+
+    .header {
+        height: auto;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .logo {
+        margin-bottom: 25px;
+    }
+
+    .data-footer ul a {
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 11px;
+    }
+
+
+    .header-items ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-items ul li {
+        margin-bottom: 5px;
+    }
+
+    .contenu-banniere {
+        margin-top: 35px;
+    }
+
+
+
+
+}
