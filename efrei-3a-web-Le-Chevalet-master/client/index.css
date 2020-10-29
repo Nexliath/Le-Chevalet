@@ -1,8 +1,3 @@
-* Page font */
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-/* Logo font */
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
 /* ALL PAGE - HEADERS - BIG FOOTER - LITTLE FOOTER _ MEDIA RESPONSIVE - HOME - CHINA/VIETNAM - MORE - YOUR TURN - GALLERY - ABOUT US */
 
 /* //////////////////////////////////////////////////////// FOR ALL PAGES /////////////////////////////////////////////////////// */
@@ -233,7 +228,7 @@ p {
 
 /* Image de bannière */
 .image-banniere-home {
-    background: url('ac-pic/bg-img2.jpg') no-repeat top center;
+    background: url('img/Abstrait.jpg') no-repeat top center;
     background-size: cover;
     width: 100%;
     height: 600px;
