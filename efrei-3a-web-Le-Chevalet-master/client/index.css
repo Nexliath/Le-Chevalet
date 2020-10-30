@@ -1,6 +1,6 @@
 /* ALL PAGE - HEADERS - BIG FOOTER - LITTLE FOOTER _ MEDIA RESPONSIVE - HOME - CHINA/VIETNAM - MORE - YOUR TURN - GALLERY - ABOUT US */
 
-/* //////////////////////////////////////////////////////// FOR ALL PAGES /////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////// FOR ALL VUE INSTANCES /////////////////////////////////////////////////////// */
 
 html {
     scroll-behavior: smooth;
@@ -87,51 +87,20 @@ p {
     margin: 0 10px;
 }
 
-/* This button is located at the home page and is used in order to access to the different page overview*/
-
-.speed-btn {
-    background: none;
-    font-size: 22px;
-    color: white;
-    text-decoration: none;
-    border: 1.5px solid #fff;
-    cursor: pointer;
-    transition: color 0.4s linear;
-    position: relative;
+.header .header-items ul li a,
+.header .header-items ul li #nav-deco {
     text-transform: uppercase;
-    padding: 12px, 20px;
-    min-width: 130px;
-    margin: 10px;
-}
-
-.speed-btn:hover {
     color: #fff;
-}
-
-.speed-btn::before {
-    content: "";
-    position: absolute;
-    background: rgb(15, 161, 172);
-    z-index: -1;
-    transition: transform 0.5s;
-    transform-origin: 0 0;
-    transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
-    transform: scaleY(0);
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
 
 }
 
-.speed-btn:hover::before {
-    transform: scaleY(1);
-
+.header .header-items ul li a:hover,
+.header .header-items ul li #nav-deco:hover{
+    text-transform: uppercase;
+    color: rgba(243, 222, 166, 0.897);
+    transition: all 0.3s;
 }
 
-.speed-btn a {
-    color: #fff;
-}
 
 /* Design scroll bar in the side*/
 ::-webkit-scrollbar {
@@ -210,8 +179,6 @@ p {
 
 /* //////////////////////////////////////////////    LITTLE FOOTER  //////////////////////////////////////////////////////// */
 
-
-
 .footer-home {
     width: 100%;
     text-align: center;
@@ -224,31 +191,7 @@ p {
     color: #fff;
 }
 
-/* //////////////////////////////////////////////// HOME PAGE ////////////////////////////////////////////////////////////// */
-
-/* Image de bannière */
-.image-banniere-home {
-    background: url('img/Abstrait.jpg') no-repeat top center;
-    background-size: cover;
-    width: 100%;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgb(92, 92, 92) 1px 1px 3px;
-}
-
-.header .header-items ul li a {
-    text-transform: uppercase;
-    color: #fff;
-
-}
-
-.header .header-items ul li a:hover {
-    text-transform: uppercase;
-    color: rgb(15, 161, 172);
-    transition: all 0.3s;
-}
+/* //////////////////////////////////////////////// LOGO //////////////////////////////////////////////// */
 
 .logo a {
     font-size: 39px;
@@ -258,26 +201,8 @@ p {
 }
 
 .logo a:hover {
-    color: rgb(15, 161, 172);
+    color: rgba(243, 222, 166, 0.897);
     transition: all 0.6s;
-}
-
-
-.contenu-banniere {
-    text-align: center;
-    color: rgb(15, 161, 172);
-    opacity: 0.95;
-}
-
-.contenu-banniere h1 {
-    text-transform: uppercase;
-    line-height: 39px;
-    margin-bottom: 16px;
-}
-
-.contenu-banniere h1 span {
-
-    color: #fff;
 }
 
 .page {
@@ -306,15 +231,6 @@ p {
 .all-page .all-page-item h3 {
     margin-bottom: 15px;
     color: rgb(15, 161, 172);
-
-}
-
-.turn-touch img:hover,
-.viet-touch img:hover,
-.china-touch img:hover {
-    cursor: pointer;
-    transform: scale(1.01);
-    transition: all 0.4s;
 
 }
 
@@ -354,8 +270,5 @@ p {
     .contenu-banniere {
         margin-top: 35px;
     }
-
-
-
 
 }

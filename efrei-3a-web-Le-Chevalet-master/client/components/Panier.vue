@@ -1,8 +1,18 @@
 <template>
   <div id="all">
-    <h2>Mon Panier</h2>
+    <div class="image-banniere-panier">
+            <div class="contenu-banniere-panier">
+                <h1><span>My panier<span></h1>
+
+                <button class="speed-btn-panier">
+                    <router-link to='/collection' id="nav-deco">Go back to collection</router-link>
+                </button>
+
+            </div>
+        </div>
+
     <article v-for="article in panier.articles" :key="article.id">
-      <div class="article-content">
+      <div class="article-content-panier">
         <div class="article-img">
           <div
             :style="{
@@ -52,47 +62,3 @@ module.exports = {
   },
 };
 </script>
-
-<style scoped>
-#all{
-  padding-left: 1%;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-}
-
-h2 {
-  text-align: center;
-  text-transform: uppercase;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-   color:black,
-}
-
-.article-img {
-  display: center;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 5%;
-}
-.article-img div {
-  width: 160px;
-  height: 160px;
-  background-size: cover;
-}
-
-
-button {
-  border: none;
-  border-radius: 6px;
-  box-shadow: 3px 3px 12px gray;
-  background: white;
-  font: bold 13px;
-  color: black;
-  cursor: pointer;
-}
-button:hover {
-  background: #5a5a5abb;
-  color: white;
-  transition: 0.5s;
-}
-</style>
