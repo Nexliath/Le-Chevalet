@@ -1,10 +1,12 @@
+
 html {
     scroll-behavior: smooth;
 }
   
 body{
-    background-color: black;
-    font-family: 'Petit Formal Script', cursive;}
+    background-color: gray;
+    ;
+    font-family: 'Petit Formal Script', cursive; }
 
 .container{
     width: 90%;
@@ -14,7 +16,7 @@ body{
 }
 
 header{
-    background-color: rgb(0, 0, 0);
+    background-color: gray;
     width: 100%;
     height: 100%;
     
@@ -40,8 +42,6 @@ header{
 }
 
 .couverture{
-
-
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(img/Accueil.jpg);
     background-size: contain;
     background-repeat: repeat-3;
@@ -51,7 +51,6 @@ header{
 }
 
 .couverture_text{
-    background-color: rgb(0, 255, 34);
     display: flex;
     margin: auto;    
 }
@@ -80,54 +79,115 @@ header{
     
 #Top {
     height: 600px;
-    background-color: pink;
   }
 
 .decouvrir{
-    width: 99%;
-    height: 100%;
-
+    width: 100%;
+    height: auto;
     position: absolute;
     margin: auto;
-
     margin-top: 1%;
-    background-color: rgb(228, 213, 195);
+    color: rgb(228, 213, 195);
+        background-color: gray;
+
 }
-
 .decouvrir_box1{
-    width: 97%;
-    height: 20%;
-
     display: flex;
     flex-direction: row;
     margin: auto;
-
     margin-top: 1%;
-    background-color: blue;
+}
+
+.decouvrir_box1 p{
+    margin-right: 20%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-transform: bold;
+    text-align: center;
+
+    width: 46%;
+    height: 20%;
+    flex-direction: row;
+    margin-top: 1%;
+    margin-left: 2%;
+}
+.decouvrir_box1_img{
+    position: static;
+    float: right;
+    flex-direction: row;
+    margin-top: 1%;
 }
 
 .decouvrir_box2{
-    width: 97%;
-    height: 20%;
-
     display: flex;
     flex-direction: row;
     margin: auto;
 
+    margin-top: 2%;
+    /*background-color: red;*/
+
+}
+.decouvrir_box2_text{
+
+    flex-direction: row;
     margin-top: 1%;
-    background-color: red;
+    margin-left: 10%;
+    margin-right: 10%;
+    /*background-color: yellow;*/
+}
+.decouvrir_box2_img{
+    width: 46%;
+    height: 20%;
+    flex-direction: row;
+    margin-top: 1%;
+    margin-left: 10%;
+
+    position: static;
+    float: left;
+    flex-direction: row;
+    margin-top: 1%;
 }
 
-.decouvrir_box3{
-    width: 97%;
-    height: 20%;
+.decouvrir_box2_img img{
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.decouvrir_box3_text{
+    flex-direction: row;
+    margin-top: 4%;
+
+    text-align: center;
+}
+.decouvrir_box3{
     display: flex;
     flex-direction: row;    
     margin: auto;
 
-    margin-top: 1%;
-    background-color: rgb(7, 184, 7);
+    margin-top: 4%;
+    text-align: center;
 }
+
+.decouvrir_box3 h1{
+
+
+}
+div#colonne1 {
+	float: left;
+    width: 30%;
+    margin-right: 4%;
+}
+div#colonne2 {
+	float: center;
+	width: 30%;
+}
+
+div#colonne3 {
+	float: right;
+    width: 30%;
+    margin-left: 4%;
+}
+
 
 
