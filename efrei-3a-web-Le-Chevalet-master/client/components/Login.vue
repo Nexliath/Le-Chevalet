@@ -1,4 +1,4 @@
-<template>
+<template> 
   <div>
       <div class="image-banniere-login">
             <div class="contenu-banniere-login">
@@ -17,7 +17,7 @@
         
 
 </template>
-
+ 
 <script>
 module.exports = {
   props: {

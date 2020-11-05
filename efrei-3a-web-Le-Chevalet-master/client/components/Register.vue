@@ -10,6 +10,7 @@
 
             </div>
             <div class="col">
+              <input type="text" name="name" placeholder="Username" v-model="userName" required>
                <input type="text" name="mail" placeholder="Email" v-model="userEmail" required>
                <input type="password" name="password" placeholder="Password" v-model="userPassword" required>
                <input type="submit" value="Register" aler @click="registerUser(userEmail, userPassword)">
@@ -26,6 +27,7 @@ module.exports = {
   },
   data() {
     return {
+      userName: "",
       userEmail: "",
       userPassword: "",
     };

@@ -5,7 +5,7 @@
                 <h1><span>Our Collection<span></h1>
 
                 <button class="speed-btn-collection">
-                    <router-link to='/panier' id="nav-deco">To your panier</router-link>
+                    <router-link to='/panier' id="nav-deco">Go to panier <i class="fas fa-cart-plus"></i></router-link>
                 </button>
 
             </div>

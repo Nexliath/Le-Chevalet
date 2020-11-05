@@ -16,6 +16,10 @@ html {
     text-decoration: none;
 }
 
+body{
+    font-family: 'Petit Formal Script', cursive; 
+}
+
 h1.title {
     color: #444444;
     text-transform: uppercase;
@@ -76,8 +80,16 @@ p {
     justify-content: space-around;
     align-items: center;
     background: #5a5a5abb;
-    position: fixed;
+    
+
 }
+
+.header_navbar_menue_lien{
+    margin-left: 40px;
+    color: azure;
+    text-decoration: none;
+}
+
 
 .header .header-items ul{
     display: flex;

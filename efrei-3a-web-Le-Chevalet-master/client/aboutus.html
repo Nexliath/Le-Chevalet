@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Le Chevalet Site Officiel - About us</title>
   <link rel="stylesheet" href="aboutus.css">
   <link rel="stylesheet" href="index.css">
 
@@ -15,8 +15,6 @@
 <body>
 
   <div id="#app">
-
-
     <div class="header">
       <div class="logo">
         <a href="home.html">Le Chevalet</a>
@@ -25,12 +23,12 @@
         <ul>
           <!-- Remplacer tout ca par des router-link -->
           <li>
-            <router-link to='/collection' id="nav-deco">Our collection</router-link>
+            <a href="index.html#/collection" class="header_navbar_menue_lien"><i class="fas fa-palette"></i>  Collection</a>
           </li>
           <li>
-            <router-link to='/login' id="nav-deco">Login / Register</router-link>
+            <a href="index.html#/login" class="header_navbar_menue_lien"><i class="fas fa-user-alt"></i>  Connexion</a>
           </li>
-          <li><a href="aboutus.html">About us</a></li>
+          <li><a href="aboutus.html" class="header_navbar_menue_lien"><i class="fas fa-gavel"></i>  About us</a></li>
         </ul>
       </div>
     </div>
@@ -38,13 +36,15 @@
   </div>
 
   <div>
-    <div class="page" id="page">
-      <h1 class="title">Meet our team</h1>
-      <p>In order to have an overview of what our website has to offer, we have decided to make you discover Asia
+    <div class="cover">
+      <div class="page" id="page">
+       <h1 class="title">Meet our team</h1>
+        <p>In order to have an overview of what our website has to offer, we have decided to make you discover Asia
         with 2 countries: China and Vietnam. <br>
         The third page will be dedicated to a little game that will allow you to learn some
         famous Asian cities. You can also access to the gallery and other countries with the nav-bar.
-      </p>
+        </p>
+     </div>
     </div>
 
     <div class="team-section">
