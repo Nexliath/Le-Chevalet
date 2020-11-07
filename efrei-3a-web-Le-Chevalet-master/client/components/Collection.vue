@@ -12,11 +12,10 @@
         </div>
 
         <div class="page" id="page">
-            <h1 class="title">Description of the Movement</h1>
-            <p>In order to have an overview of what our website has to offer, we have decided to make you discover Asia
-                with 2 countries: China and Vietnam. <br>
-                The third page will be dedicated to a little game that will allow you to learn some
-                famous Asian cities. You can also access to the gallery and other countries with the nav-bar.
+            <h1 class="title">An awesome collection</h1>
+            <p>An incredibly comprehensive collection. From impressionism to surrealism through the abstract movement.
+                    You will find, we are sure, the painting that suits you. <br>
+                Come visit this collection and you will be attracted to the beauty of the talent of our different artists.
             </p>
 
     <div class="content-collection">
