@@ -1,128 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Chevalet Site Officiel | Not ugly painting ...</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="home.css">
+  <title>Le Chevalet Site Officiel | Not ugly painting ...</title>
 
-    <script src="https://kit.fontawesome.com/eea079109c.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/eea079109c.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+  <script src="script.js" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/http-vue-loader/src/httpVueLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="collection.css">
-    <link rel="stylesheet" href="panier.css">
-    <link rel="stylesheet" href="register.css">
-    <link rel="stylesheet" href="login.css">
-
-    <script type="text/javascript" src="home.js"></script>
 </head>
-
 <body>
-    <div id="#app">
-        <div class="header">
-            <div class="logo">
-                <a href="home.html">Le Chevalet</a>
-            </div>
-            <div class="header-items">
-                <ul>
-                    <li>
-                        <a href="index.html#/collection" class="header_navbar_menue_lien"><i class="fas fa-palette"></i>
-                            Collection</a>
-                    </li>
-                    <li>
-                        <a href="index.html#/login" class="header_navbar_menue_lien"><i class="fas fa-user-alt"></i>
-                            Connexion</a>
-                    </li>
-                    <li><a href="aboutus.html" class="header_navbar_menue_lien"><i class="fas fa-gavel"></i> About
-                            us</a></li>
-                </ul>
-            </div>
-        </div>
 
+  <button onclick="topFunction()" id="top-button" title="back-to-top"><i class="fa fa-angle-up"></i></button>
+
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="home.html"><h1><span>L</span>e <span>C</span>hevalet</h1></a>
+        </div>
+        <div class="nav-list">
+          <div class="hamburger"><div class="bar"></div></div>
+          <ul>
+            <li><a href="home.html"data-after="Home" id="here">Home</a></li>
+            <li><a href="index.html#/collection" data-after="Service"><i class="fas fa-palette"></i> Collection</a></li>
+            <li><a href="index.html#/login" data-after="paintings"><i class="fas fa-user-alt"></i> Connexion</a></li>
+            <li><a href="aboutus.html" data-after="About"><i class="fas fa-gavel" ></i> About</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="couverture" id="Top">
-        <div class="couverture_text">
-            <h2>Voyager à travers les âges et les pinceaux</h2>
-        </div>
-        <div class="couvertue_btn">
-            <a href="#Bottom">Découvrir</a>
-        </div>
+  <section id="home-cover">
+    <div class="home-cover container">
+      <div>
+        <h1>Voyager<span></span></h1>
+        <h1>à travers les âges, <span></span></h1>
+        <h1>les pinceaux <span></span></h1>
+        <a href="#paintings" type="button" class="cta">Discover</a>
+      </div>
     </div>
+  </section>
 
-    <div class="decouvrir" id="Bottom">
-        <div class="decouvrir_box1">
-            <p><br><br>
-                <a href="" class="typewrite" data-period="3000"
-                    data-type='[ "Decouvrir", "Rêver", "Imaginer", "Soutenir" ]'>
-                    <span class="wrap"></span>
-                </a>
-            </p>
-            <div class="decouvrir_box1_img">
-                <img src="img/SecretCove.jpg" alt="">
-            </div>
-
+  <section id="services">
+    <div class="services container">
+      <div class="service-top">
+        <h1 class="section-title">Our Serv<span>i</span>ces</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum deleniti maiores pariatur assumenda quas magni et, doloribus quod voluptate quasi molestiae magnam officiis dolorum, dolor provident atque molestias voluptatum explicabo!</p>
+      </div>
+      <div class="service-bottom">
+        <div class="service-item">
+          <div class="icon"><img src="https://img.icons8.com/metro/100/000000/checked.png"/></div>
+          <h2>Sauvegardez</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed architecto placeat beatae tenetur officia quod</p>
         </div>
-
-        <div class="decouvrir_box2">
-            <div class="decouvrir_box2_img">
-                <img src="img/SecretCove.jpg" alt="">
-            </div>
-
-            <div class="decouvrir_box2_text">
-                <p> <br> Un livre est un monde, un monde fait, un monde avec un commencement et une fin. Chaque page
-                    d'un livre est une ville. Chaque ligne est une rue. Chaque mot est une demeure. Mes yeux parcourent
-                    la rue, ouvrant chaque porte, pénétrant dans chaque demeure.
-                    <br>
-                    Réjean Ducharme ,
-            </div>
-
+        <div class="service-item">
+          <div class="icon"><img src="https://img.icons8.com/metro/100/000000/toolbox.png"/></div>
+          <h2>Selection</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed architecto placeat beatae tenetur officia quod</p>
         </div>
-
-        <div class="decouvrir_box3_text">
-            <p>Comment de venir mécène ?</p>
+        <div class="service-item">
+          <div class="icon"><img src="https://img.icons8.com/metro/52/000000/truck.png"/></div>
+          <h2>Recevez chez vous</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed architecto placeat beatae tenetur officia quod</p>
         </div>
-
-        <div class="decouvrir_box3">
-
-
-            <div id="colonne1">
-                <i class="far fa-check-circle fa-6x"></i>
-                <h1>Selection</h1>
-                <p>Une collection incroyablement complète. De l'impressionisme au surréalisme en passant par l'abstrait.
-                    Vous trouverez, nous en sommes sûr, l'oevre qui vous ressemble.</p>
-                <br><br><br><br><br>
-            </div>
-            <div id="colonne2">
-                <i class="fas fa-gavel fa-6x"></i>
-                <h1>Sauvegardez</h1>
-                <p>Votre don permettera à l'oeuvre de perdurer à treavers le temps et les génération. Votre don
-                    contribura à sa restauration mais également à son entretien</p>
-                <br><br><br><br><br>
-            </div>
-            <div id="colonne3">
-                <i class="fas fa-truck fa-6x"></i>
-                <h1>Recevez chez vous</h1>
-                <p>En contre partie vous aurez le privilège de recevoir une reproduction de votre oeuvre.</p>
-                <br><br><br><br><br>
-            </div>
-        </div>
-
-
-
-
+      </div>
     </div>
+  </section>
 
-    <footer>
-    </footer>
+  <section id="paintings">
+    <div class="paintings container">
+      <div class="paintings-header">
+        <h1 class="section-title">Recent <span>Painting</span></h1>
+      </div>
+      <div class="all-paintings">
+        <div class="painting-item">
+          <div class="painting-info">
+            <h1>Abstract Painting</h1>
+            <h2>Gerhard Richter - 2017</h2>
+            <p>Considered together, the body of work Richter has created is the manifestation of his stated goal as a painter: “to bring together in a living and viable way, the most different and the most contradictory elements in the greatest possible freedom.”</p>
+          </div>
+          <div class="painting-img">
+            <img src="./img/home/richter.jpg" alt="img">
+          </div>
+        </div>
+        <div class="painting-item">
+          <div class="painting-info">
+            <h1>Les Demoiselles d'Avignon</h1>
+            <h2>Pablo Picasso - 1907</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+          </div>
+          <div class="painting-img">
+            <img src="./img/home/picasso.png" alt="img">
+          </div>
+        </div>
+        <div class="painting-item">
+          <div class="painting-info">
+            <h1>Naked Man with Rat</h1>
+            <h2>Lucian Freud - 1977</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+          </div>
+          <div class="painting-img">
+            <img src="./img/home/lucien.jpg" alt="img">
+          </div>
+        </div>
+        <div class="painting-item">
+          <div class="painting-info">
+            <h1>La Raie verte</h1>
+            <h2>Henri Matisse - 1905</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+          </div>
+          <div class="painting-img">
+            <img src="./img/home/verte.jpg" alt="img">
+          </div>
+        </div>
+        <div class="painting-item">
+          <div class="painting-info">
+            <h1>Black Grassland</h1>
+            <h2>Lee Jong-gu - 2008</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+          </div>
+          <div class="painting-img">
+            <img src="./img/home/grassland.jpg" alt="img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section id="contact">
+    <div class="contact container">
+      <div><h1 class="section-title">Contact <span>info</span></h1></div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/metro/100/000000/cell-phone.png"/></div>
+          <div class="contact-info">
+            <h1>Phone</h1>
+            <h2>01 17 65 41 49</h2>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/metro/100/000000/new-post.png"/></div>
+          <div class="contact-info">
+            <h1>Email</h1>
+            <h2>ourwebsite@le-chevalet.com</h2>
+            
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/metro/100/000000/marker.png"/></div>
+          <div class="contact-info">
+            <h1>Address</h1>
+            <h2>30 Avenue de la République, 94800 Villejuif</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="footer">
+    <div class="footer container">
+      <div class="brand"><h1><span>L</span>e <span>C</span>hevalet</h1></div>
+      <h2>Art enhancer since 2020</h2>
+      <div class="social-icon">
+        <div class="social-item">
+          <a href="https://www.facebook.com/victor.grnr"><img src="https://img.icons8.com/metro/26/000000/facebook-new--v2.png"/></a>
+        </div>
+        <div class="social-item">
+          <a href="https://www.instagram.com/victor.grnr/?hl=fr"><img src="https://img.icons8.com/metro/26/000000/instagram-new.png"/></a>
+        </div>
+        <div class="social-item">
+          <a href="https://github.com/Nexliath"><img src="https://img.icons8.com/metro/26/000000/youtube.png"/></a>
+        </div>
+      </div>
+      <p>Copyright © 2020 Victor GARNIER and Victorine RICHARD</p>
+    </div>
+  </section>
+
+  <script src="./home.js"></script>
 </body>
-
 </html>
