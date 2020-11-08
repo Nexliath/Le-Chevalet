@@ -188,7 +188,7 @@ p {
 
 /* home-cover Section */
 #about-cover {
-	background-image: url(./img/about/about.jpg);
+	background-image: url(./img/about/cover.jpg);
 	background-size: cover;
 	background-position: top center;
 	position: relative;
@@ -365,8 +365,6 @@ p {
 	font-size: 1.3rem;
 }
 /* End Footer */
-
-/* end-button */
   
   @media screen and (max-width:600px) {
     .pe{

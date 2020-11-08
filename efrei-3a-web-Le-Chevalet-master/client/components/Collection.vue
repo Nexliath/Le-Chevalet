@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Collection header  -->
     <section id="header">
       <div class="header container">
         <div class="nav-bar">
@@ -13,34 +14,46 @@
               <div class="bar"></div>
             </div>
             <ul>
-              <li><a href="shop.html#/collection" data-after="Service"><i class="fas fa-palette" id="here"></i> Collection</a>
-              <li><a href="shop.html#/panier" data-after="paintings"><i class="fas fa-shopping-cart"></i> Panier</a></li>
-              <li><a href="shop.html#/login" data-after="paintings"><i class="fas fa-user-alt"></i> Connexion</a></li>
-              <li><a href="aboutus.html" data-after="About"><i class="fas fa-gavel" ></i> About</a></li>
+              <li>
+                <a href="shop.html#/collection" data-after="Collection"
+                  ><i class="fas fa-palette" id="here"></i> Collection</a
+                >
+              </li>
+              <li>
+                <a href="shop.html#/panier" data-after="Panier"
+                  ><i class="fas fa-shopping-cart"></i> Panier</a
+                >
+              </li>
+              <li>
+                <a href="shop.html#/login" data-after="Connexion"
+                  ><i class="fas fa-user-alt"></i> Connexion</a
+                >
+              </li>
+              <li>
+                <a href="aboutus.html" data-after="About us"
+                  ><i class="fas fa-gavel"></i> About</a
+                >
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </section>
-    <div class="image-banniere-collection">
-            <div class="contenu-banniere-collection">
-                <h1><span>Our Collection<span></h1>
+    <!-- End Collection header -->
 
-                <button class="speed-btn-collection">
-                    <router-link to='/panier' id="nav-deco">Go to panier <i class="fas fa-cart-plus"></i></router-link>
-                </button>
-
-            </div>
+    <!-- collection-cover Section  -->
+    <section id="collection-cover">
+      <div class="home-cover container">
+        <div>
+          <h1>The collection<span></span></h1>
+          <br />
+          <a href="#" type="button" class="cta">Take a look</a>
         </div>
+      </div>
+    </section>
+    <!-- collection-cover Section  -->
 
-        <div class="page" id="page">
-            <h1 class="title">An awesome collection</h1>
-            <p>An incredibly comprehensive collection. From impressionism to surrealism through the abstract movement.
-                    You will find, we are sure, the painting that suits you. <br>
-                Come visit this collection and you will be attracted to the beauty of the talent of our different artists.
-            </p>
-
-    <div class="content-collection">
+    <div class="content-collection" id="content-collection">
       <article v-for="article in articles" :key="article.id">
         <div class="article-content">
           <div class="article-title">
@@ -77,7 +90,7 @@
               </button>
             </div>
           </div>
-        </div>   
+        </div>
       </article>
     </div>
   </div>

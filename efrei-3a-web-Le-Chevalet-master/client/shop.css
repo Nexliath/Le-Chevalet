@@ -303,13 +303,24 @@ p {
 		font-size: 6rem;
 	}
 
-	/* home-cover */
+	/* covers */
+	#collection-cover h1 {
+		font-size: 7rem;
+	}
+	#panier-cover h1 {
+		font-size: 7rem;
+	}
+	#register-cover h1 {
+		font-size: 7rem;
+	}
+	#login-cover h1 {
+		font-size: 7rem;
+	}
 	#home-cover h1 {
 		font-size: 7rem;
 	}
-	/* End home-cover */
+	/* End covers */
 }
-
 
 /* Media Query For Desktop */
 @media only screen and (min-width: 1200px) {

@@ -24,16 +24,16 @@
       </div>
     </section>
 
-    <div class="image-banniere-panier">
-            <div class="contenu-banniere-panier">
-                <h1><span>My panier<span></h1>
-
-                <button class="speed-btn-panier">
-                    <router-link to='/collection' id="nav-deco">Go back to collection</router-link>
-                </button>
-
-            </div>
+  <!-- about-us-cover Section  -->
+    <section id="panier-cover">
+      <div class="home-cover container">
+        <div>
+          <h1>Content panier <span></span></h1> <br>
+          <a href="#article-was" type="button" class="cta">Access to it</a>
         </div>
+      </div>
+    </section>
+  <!-- End about-us-cover Section  -->
 
     <article v-for="article in panier.articles" :key="article.id">
       <div class="article-content-panier">
