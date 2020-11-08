@@ -53,6 +53,19 @@
     </section>
     <!-- collection-cover Section  -->
 
+    <!-- description of the collection  -->
+    <section id="services">
+    <div class="services container">
+      <div class="service-top">
+        <h1 class="section-title">A lar<span>g</span>e collection</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum deleniti maiores pariatur assumenda quas
+          magni et, doloribus quod voluptate quasi molestiae magnam officiis dolorum, dolor provident atque molestias
+          voluptatum explicabo!</p>
+      </div>
+    </div>
+  </section>
+  <!-- End description of the collection  -->
+
     <div class="content-collection" id="content-collection">
       <article v-for="article in articles" :key="article.id">
         <div class="article-content">
