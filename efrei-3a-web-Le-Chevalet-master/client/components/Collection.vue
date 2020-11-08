@@ -1,5 +1,27 @@
 <template>
   <div>
+    <section id="header">
+      <div class="header container">
+        <div class="nav-bar">
+          <div class="brand">
+            <a href="home.html">
+              <h1><span>L</span>e <span>C</span>hevalet</h1>
+            </a>
+          </div>
+          <div class="nav-list">
+            <div class="hamburger">
+              <div class="bar"></div>
+            </div>
+            <ul>
+              <li><a href="shop.html#/collection" data-after="Service"><i class="fas fa-palette" id="here"></i> Collection</a>
+              <li><a href="shop.html#/panier" data-after="paintings"><i class="fas fa-shopping-cart"></i> Panier</a></li>
+              <li><a href="shop.html#/login" data-after="paintings"><i class="fas fa-user-alt"></i> Connexion</a></li>
+              <li><a href="aboutus.html" data-after="About"><i class="fas fa-gavel" ></i> About</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="image-banniere-collection">
             <div class="contenu-banniere-collection">
                 <h1><span>Our Collection<span></h1>

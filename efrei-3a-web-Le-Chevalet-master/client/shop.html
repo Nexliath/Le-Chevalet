@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Le Chevalet Site Officiel | Collection</title>
+  <!-- Load Vue followed by Vue Router -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/http-vue-loader/src/httpVueLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script type="text/javascript" src="script.js"></script>
+  <script src="https://kit.fontawesome.com/5804e4d8f3.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/eea079109c.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="shop.css">
+  <link rel="stylesheet" href="collection.css">
+  <link rel="stylesheet" href="panier.css">
+  <link rel="stylesheet" href="register.css">
+  <link rel="stylesheet" href="login.css">
+
+  <link rel="shortcut icon" type="image/png" href="img/img-logo.png" />
+</head>
+
+<body>
+  <button onclick="topFunction()" id="top-button" title="back-to-top"><i class="fa fa-angle-up"></i></button>
+  <div id="app">
+
+    <button onclick="topFunction()" id="top-button" title="back-to-top"><i class="fa fa-angle-up"></i></button>
+    <!-- Header -->
+    
+    <!-- End Header -->
+
+    <!-- collection or panier -cover Section  -->
+ 
+
+    <!-- End collection or panier-cover Section  -->
+
+    <main>
+      <router-view :articles="articles" :panier="panier" @add-article="addArticle" @put-in-panier="putInPanier"
+        @remove-from-panier="removeFromPanier" @add-to-panier="addToPanier" @delete-article="deleteArticle"
+        @register-user="registerUser" @update-article="updateArticle" @login-user="loginUser" @get-user-id="getUserId">
+      </router-view>
+    </main>
+
+    <section id="footer">
+      <div class="footer container">
+        <div class="brand">
+          <h1><span>L</span>e <span>C</span>hevalet</h1>
+        </div>
+        <h2>Art enhancer since 2020</h2>
+        <div class="social-icon">
+          <div class="social-item">
+            <a href="https://www.facebook.com/victor.grnr"><img
+                src="https://img.icons8.com/metro/26/000000/facebook-new--v2.png" /></a>
+          </div>
+          <div class="social-item">
+            <a href="https://www.instagram.com/victor.grnr/?hl=fr"><img
+                src="https://img.icons8.com/metro/26/000000/instagram-new.png" /></a>
+          </div>
+          <div class="social-item">
+            <a href="https://github.com/Nexliath"><img src="https://img.icons8.com/metro/26/000000/youtube.png" /></a>
+          </div>
+        </div>
+        <p>Copyright © 2020 Victor GARNIER and Victorine RICHARD</p>
+      </div>
+    </section>
+    <!-- End Footer -->
+    
+    <script src="./home.js"></script>
+    <script src="/vue-application.js"></script>
+</body>
+
+</html>
