@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const tableaux = require('../data/articles.js')
+const tableaux = require('../data/tableaux.js')
 
 class Panier {
   constructor () {
@@ -157,15 +157,19 @@ router.get('/tableaux', (req, res) => {
  */
 router.post('/tableau', (req, res) => {
   const name = req.body.name
-  const description = req.body.description
+  const painter = req.body.painter
+  const movement = req.body.movement
+  const date = parseInt(req.body.date)
   const image = req.body.image
   const price = parseInt(req.body.price)
 
   // vérification de la validité des données d'entrée
   if (typeof name !== 'string' || name === '' ||
-      typeof description !== 'string' || description === '' ||
+      typeof painter !== 'string' || painter === '' ||
+      typeof movement !== 'string' || movement === '' ||
       typeof image !== 'string' || image === '' ||
-      isNaN(price) || price <= 0) {
+      isNaN(price) || price <= 0 ||
+      isNaN(date) || date <= 0) {
     res.status(400).json({ message: 'bad request' })
     return
   }
@@ -173,7 +177,9 @@ router.post('/tableau', (req, res) => {
   const tableau = {
     id: tableaux.length + 1,
     name: name,
-    description: description,
+    painter: painter,
+    movement: movement,
+    date: date,
     image: image,
     price: price
   }
@@ -230,12 +236,16 @@ router.route('/tableau/:tableauId')
 
   .put(parseTableau, (req, res) => {
     const name = req.body.name
-    const description = req.body.description
+    const painter = req.body.painter
+    const movement = req.body.movement
+    const date = parseInt(req.body.date)
     const image = req.body.image
     const price = parseInt(req.body.price)
 
     req.tableau.name = name
-    req.tableau.description = description
+    req.tableau.painter= painter
+    req.tableau.movement= movement
+    req.tableau.date = date
     req.tableau.image = image
     req.tableau.price = price
     res.send()

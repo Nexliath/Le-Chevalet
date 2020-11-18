@@ -49,7 +49,9 @@ var app = new Vue({
       await axios.put('/api/tableau/' + newTableau.id, newTableau)
       const tableau = this.tableaux.find(a => a.id === newTableau.id)
       tableau.name = newTableau.name
-      tableau.description = newTableau.description
+      tableau.painter = newTableau.painter
+      tableau.movement = newTableau.movement
+      tableau.date = newTableau.date
       tableau.image = newTableau.image
       tableau.price = newTableau.price
     },

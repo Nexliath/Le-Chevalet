@@ -76,9 +76,9 @@
               ></div>
             </div>
 
-            <h2>{{ tableau.name }} - {{ tableau.price }}€</h2>
+            <h2>{{ tableau.name }}, {{ tableau.date}} - {{ tableau.painter }}- {{ tableau.price }}€</h2>
             <div class="paragraphe">
-              {{ tableau.description }}
+              {{ tableau.movement }}
             </div>
             <div>
               <button
@@ -117,9 +117,12 @@
             <h2>
               <input type="text" v-model="editingTableau.name" /> -
               <input type="number" v-model="editingTableau.price" />
+              <input type="text" v-model="editingTableau.painter" />
+              <input type="number" v-model="editingTableau.date" />
+              <input type="text" v-model="editingTableau.movement" />
+              
             </h2>
-            <p><textarea v-model="editingTableau.description"></textarea></p>
-
+            
             <div>
               <button @click="sendEditTableau()">Valider</button>
               <button @click="abortEditTableau()">Annuler</button>
@@ -130,11 +133,11 @@
     </div>
     <div class="formulaire">
       <form @submit.prevent="addTableau">
-        <h2>Nouveau produit à ajouter</h2>
+        <h2>Nouveau tableau à ajouter</h2>
         <input
           type="text"
           v-model="newTableau.name"
-          placeholder="Nom du produit"
+          placeholder="Name of the tableau"
           required
         />
         <input
@@ -143,12 +146,24 @@
           placeholder="Prix"
           required
         />
-        <textarea
+        <input
           type="text"
-          v-model="newTableau.description"
-          placeholder="Description du produit"
+          v-model="newTableau.painter"
+          placeholder="Painter of the tableau"
           required
-        ></textarea>
+        />
+        <input
+          type="text"
+          v-model="newTableau.movement"
+          placeholder="Movement"
+          required
+        />
+        <input
+          type="number"
+          v-model="newTableau.date"
+          placeholder="Date"
+          required
+        />
         <input
           type="text"
           v-model="newTableau.image"
@@ -170,14 +185,18 @@ module.exports = {
     return {
       newTableau: {
         name: "",
-        description: "",
+        painter: "",
+        movement:"",
+        date: 0,
         image: "",
         price: 0,
       },
       editingTableau: {
         id: -1,
         name: "",
-        description: "",
+        painter: "",
+        movement:"",
+        date: 0,
         image: "",
         price: 0,
       },
@@ -201,7 +220,9 @@ module.exports = {
     editTableau(tableau) {
       this.editingTableau.id = tableau.id;
       this.editingTableau.name = tableau.name;
-      this.editingTableau.description = tableau.description;
+      this.editingTableau.painter = tableau.painter;
+      this.editingTableau.movement = tableau.movement;
+      this.editingTableau.date = tableau.date;
       this.editingTableau.image = tableau.image;
       this.editingTableau.price = tableau.price;
     },
@@ -213,7 +234,9 @@ module.exports = {
       this.editingTableau = {
         id: -1,
         name: "",
-        description: "",
+        painter: "",
+        movement:"",
+        date: 0,
         image: "",
         price: 0,
       };

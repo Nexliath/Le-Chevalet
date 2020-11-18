@@ -52,7 +52,7 @@
             tableaux.find((a) => a.id === tableau.id).price * tableau.quantity
           }}€
         </h3>
-        <p>{{ tableaux.find((a) => a.id === tableau.id).description }}</p>
+        <p>{{ tableaux.find((a) => a.id === tableau.id).painter }}</p>
 
         <input
           type="number"
