@@ -25,51 +25,100 @@ var app = new Vue({
       tableaux: []
     }
   },
-  async mounted () {
-    const res = await axios.get('/api/tableaux')
-    this.tableaux = res.data
-
-    const res2 = await axios.get('/api/panier')
-    this.panier = res2.data
+  mounted() {
+    this.loadTableaux()
+    this.loadPanier()
   },
   methods: {
-    async addTableau (tableau) {
-      const res = await axios.post('/api/tableau', tableau)
-      this.tableaux.push(res.data)
+    async loadTableaux() {
+      try {
+        const res = await axios.get('/api/tableaux')
+        this.tableaux = res.data
+      } catch (e) {
+        alert("Erreur pour charger les tableaux.")
+      }
     },
-
-    async addToPanier(tableauId){
-      const tableau = {id: tableauId, quantity: 1}
-      const res = await axios.post('/api/panier', tableau)
-
-      this.panier = res.data
-
+    async loadPanier() {
+      try {
+        const res = await axios.get('/api/panier')
+        this.panier = res.data
+      } catch (e) {
+        alert("Erreur pour charger le panier.")
+      }
     },
-    async updateTableau (newTableau) {
-      await axios.put('/api/tableau/' + newTableau.id, newTableau)
-      const tableau = this.tableaux.find(a => a.id === newTableau.id)
-      tableau.name = newTableau.name
-      tableau.painter = newTableau.painter
-      tableau.movement = newTableau.movement
-      tableau.date = newTableau.date
-      tableau.image = newTableau.image
-      tableau.price = newTableau.price
+    async addTableau(tableau) {
+      try {
+        const res = await axios.post('/api/tableau', tableau)
+        this.tableaux.push(res.data)
+      } catch (e) {
+        alert("Erreur pour créer le tableau.")
+      }
     },
-    async deleteTableau (tableauId) {
-      await axios.delete('/api/tableau/' + tableauId)
-      const index = this.tableaux.findIndex(a => a.id === tableauId)
-      this.tableaux.splice(index, 1)
+    async updateTableau(newTableau) {
+      try {
+        await axios.put('/api/tableau/' + newTableau.id, newTableau)
+        const tableau = this.tableaux.find(a => a.id === newTableau.id)
+        tableau.name = newTableau.name
+        tableau.painter = newTableau.painter
+        tableau.movement = newTableau.movement
+        tableau.date = newTableau.date
+        tableau.image = newTableau.image
+        tableau.price = newTableau.price
+       
+      } catch (e) {
+        alert("Erreur pour modifier le tableau.")
+      }
     },
-    async removeFromPanier (tableauId) {
-      
-      const res = await axios.delete('/api/panier/' + tableauId)
-      this.panier = res.data
+    async deleteTableau(tableauId) {
+      try {
+        await axios.delete('/api/tableau/' + tableauId)
+        const index = this.tableaux.findIndex(a => a.id === tableauId)
+        this.tableaux.splice(index, 1)
+      } catch (e) {
+        alert("Erreur pour supprimer le tableau.")
+      }
     },
-
-    async putInPanier (tableauId, tableauQuantity) {
-      const test = {id: tableauId, quantity: tableauQuantity}
-      const res = await axios.put('/api/panier/'+ tableauId, test)
-      this.panier = res.data
-    }, 
+    async addToPanier(tableauId) {
+      const tableau = {
+        id: tableauId,
+        quantity: 1
+      }
+      try {
+        const res = await axios.post('/api/panier', tableau)
+        this.panier.tableaux.push(tableau)
+        this.panier.updatedAt = new Date()
+      } catch (e) {
+        alert("Erreur pour ajouter le tableau au panier.")
+      }
+    },
+    async removeFromPanier(tableauId) {
+      try {
+        await axios.delete('/api/panier/' + tableauId)
+        const index = this.panier.tableaux.findIndex(a => a.id === tableauId)
+        this.panier.tableaux.splice(index, 1)
+        this.panier.updatedAt = new Date()
+      } catch (e) {
+        alert("Erreur pour retirer le tableau du panier.")
+      }
+    },
+    async updatePanier(newTableau) {
+      try {
+        await axios.put('/api/panier/' + newTableau.id, newTableau)
+        const tableau = this.panier.tableaux.find(a => a.id === newTableau.id)
+        tableau.quantity = newTableau.quantity
+        this.panier.updatedAt = new Date()
+      } catch (e) {
+        alert("Erreur pour changer la quantité de tableau.")
+      }
+    },
+    async pay() {
+      try {
+        const res = await axios.post('/api/panier/pay')
+        this.panier.tableaux.splice(0, this.panier.tableaux.length)
+        this.panier.updatedAt = new Date()
+      } catch (e) {
+        router.push('/login')
+      }
+    }
   }
 })

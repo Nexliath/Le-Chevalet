@@ -38,10 +38,16 @@
       <!-- collection/panier/login/register cover Section  -->
       <!-- collection/panier/login/register cover Section  -->
 
-      <router-view :tableaux="tableaux" :panier="panier" @add-tableau="addTableau" @put-in-panier="putInPanier"
-        @remove-from-panier="removeFromPanier" @add-to-panier="addToPanier" @delete-tableau="deleteTableau"
-        @register-user="registerUser" @update-tableau="updateTableau" @login-user="loginUser" @get-user-id="getUserId">
-      </router-view>
+      <router-view
+        :tableaux="tableaux"
+        :panier="panier"
+        @add-tableau="addTableau"
+        @delete-tableau="deleteTableau"
+        @update-tableau="updateTableau"
+        @add-to-panier="addToPanier"
+        @remove-from-panier="removeFromPanier"
+        @update-panier="updatePanier"
+        ></router-view>
     </main>
     <!-- End Content of the wanted Section  -->
 

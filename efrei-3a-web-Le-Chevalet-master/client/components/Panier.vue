@@ -35,33 +35,30 @@
     </section>
   <!-- End about-us-cover Section  -->
 
-    <article v-for="tableau in panier.tableaux" :key="tableau.id">
-      <div class="article-content-panier">
-        <div class="article-img">
-          <div
-            :style="{
-              backgroundImage:
-                'url(' + tableaux.find((a) => a.id === tableau.id).image + ')',
-            }"
-          ></div>
+    <article v-for="tableau in tableaux_panier" :key="tableau.id">
+      <div class="article-img">
+        <div class="article" :style="{ backgroundImage: 'url(' + tableau.image + ')' }">
         </div>
-        <h3>
-          {{ tableau.quantity }}
-          {{ tableaux.find((a) => a.id === tableau.id).name }} | Prix total:
-          {{
-            tableaux.find((a) => a.id === tableau.id).price * tableau.quantity
-          }}€
-        </h3>
-        <p>{{ tableaux.find((a) => a.id === tableau.id).painter }}</p>
-
-        <input
-          type="number"
-          v-model="tableau.tableauQuantity"
-          placeholder="Quantité"
-        />
-        <button @click="putInPanier(tableau.id, tableau.tableauQuantity)">
-          Changer la quantité
-        </button>
+      </div>
+      <div class="article-content" v-if="editingTableau.id !== tableau.id">
+        <div class="article-title">
+          <h2>{{ tableau.name }}, {{ tableau.date }} - {{ tableau.price }}€ x {{ tableau.quantity }}</h2>
+        </div>
+        <p class="description">{{ tableau.painter }}, {{ tableau.movement }}</p>
+        <div>
+          <button class="delete" @click="removeFromPanier(tableau.id)">Remove from basket</button>
+          <button class="modify" @click="editTableau(tableau)">Modify</button>
+        </div>
+      </div>
+      <div class="article-content" v-else>
+        <div class="article-title">
+          <h2>{{ tableau.name }} - {{ tableau.price }}€ x <input type="number" v-model="editingTableau.quantity"></h2>
+          <div>
+            <button class="validate" @click="sendEditQuantity()">Valider</button>
+            <button class="delete" @click="abortEditQuantity()">Annuler</button>
+          </div>
+        </div>
+        <p>{{ tableau.painter }}</p>
       </div>
     </article>
   </div>
@@ -75,14 +72,41 @@ module.exports = {
   },
   data() {
     return {
-      tableauQuantity: "",
-    };
+      editingTableau: {
+        id: -1,
+        quantity: 0
+      }
+    }
   },
-  async mounted() {},
+  computed: {
+    tableaux_panier() {
+      return this.panier.tableaux.map(tableau => ({
+        ...tableau,
+        ...this.tableaux.find(a => a.id === tableau.id)
+      }))
+    }
+  },
   methods: {
-    putInPanier(tableauId, tableauQuantity) {
-      this.$emit("put-in-panier", tableauId, tableauQuantity);
+    pay() {
+      this.$emit('pay')
     },
-  },
-};
+    removeFromPanier(tableauId) {
+      this.$emit('remove-from-panier', tableauId)
+    },
+    editTableau(tableau) {
+      this.editingTableau.id = tableau.id
+      this.editingTableau.quantity = tableau.quantity
+    },
+    sendEditQuantity() {
+      this.$emit('update-panier', this.editingTableau)
+      this.abortEditQuantity()
+    },
+    abortEditQuantity() {
+      this.editingTableau = {
+        id: -1,
+        quantity: 0
+      }
+    }
+  }
+}
 </script>

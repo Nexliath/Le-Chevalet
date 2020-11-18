@@ -66,110 +66,48 @@
   </section>
   <!-- End description of the collection  -->
 
-    <div class="content-collection" id="content-collection">
+  <div>
+      <h1>Liste des tableaux</h1>
       <article v-for="tableau in tableaux" :key="tableau.id">
+        <div class="article-img">
+          <div class="article" :style="{ backgroundImage: 'url(' + tableau.image + ')' }">
+          </div>
+        </div>
         <div class="article-content" v-if="editingTableau.id !== tableau.id">
           <div class="article-title">
-            <div class="article-img">
-              <div
-                :style="{ backgroundImage: 'url(' + tableau.image + ')' }"
-              ></div>
-            </div>
-
-            <h2>{{ tableau.name }}, {{ tableau.date}} - {{ tableau.painter }}- {{ tableau.price }}€</h2>
-            <div class="paragraphe">
-              {{ tableau.movement }}
-            </div>
+            <h2>{{ tableau.name }}, {{ tableau.date }}- {{ tableau.price }}€</h2>
+            <p>{{ tableau.painter }}, {{ tableau.movement }}</p>
             <div>
-              <button
-                class="button"
-                v-if="
-                  panier.tableaux.find((a) => a.id === tableau.id) == undefined
-                "
-                @click="addToPanier(tableau.id)"
-              >
-                Ajouter au panier
-              </button>
-              <button
-                class="button"
-                v-else
-                @click="removeFromPanier(tableau.id)"
-              >
-                Retirer du panier
-              </button>
-
-              <button class="button" @click="deleteTableau(tableau.id)">
-                Supprimer
-              </button>
-              <button class="button" @click="editTableau(tableau)">
-                Modifier
-              </button>
+              <button class="delete" @click="deleteTableau(tableau.id)">Supprimer</button>
+              <button class="modify" @click="editTableau(tableau)">Modifier</button>
+              <button class="remove-basket" v-if="isInPanier(tableau.id)" @click="removeFromPanier(tableau.id)">Retirer du panier</button>
+              <button class="add-basket" v-else="isInPanier(tableau.id)" @click="addToPanier(tableau.id)">Ajouter au panier</button>
             </div>
           </div>
         </div>
         <div class="article-content" v-else>
           <div class="article-title">
-            <input
-            type="text"
-            v-model="editingTableau.image"
-            placeholder="Lien vers l'image"
-          />
-            <h2>
-              <input type="text" v-model="editingTableau.name" /> -
-              <input type="number" v-model="editingTableau.price" />
-              <input type="text" v-model="editingTableau.painter" />
-              <input type="number" v-model="editingTableau.date" />
-              <input type="text" v-model="editingTableau.movement" />
-              
-            </h2>
-            
+            <h2><input type="text" v-model="editingTableau.name"> - <input type="number" v-model="editingTableau.price"></h2>
             <div>
-              <button @click="sendEditTableau()">Valider</button>
-              <button @click="abortEditTableau()">Annuler</button>
+              <button class="add-basket" @click="sendEditTableau()">Valider</button>
+              <button class="delete" @click="abortEditTableau()">Annuler</button>
             </div>
           </div>
+          <p><input type="text" v-model="editingTableau.painter" placeholder="Painter name"></p>
+          <input type="text" v-model="editingTableau.movement" placeholder="Movement of the Tableau">
+          <input type="number" v-model="editingTableau.date" placeholder="Date of the tableau">
+          <input type="text" v-model="editingTableau.image" placeholder="Lien vers l'image">
         </div>
       </article>
-    </div>
-    <div class="formulaire">
       <form @submit.prevent="addTableau">
-        <h2>Nouveau tableau à ajouter</h2>
-        <input
-          type="text"
-          v-model="newTableau.name"
-          placeholder="Name of the tableau"
-          required
-        />
-        <input
-          type="number"
-          v-model="newTableau.price"
-          placeholder="Prix"
-          required
-        />
-        <input
-          type="text"
-          v-model="newTableau.painter"
-          placeholder="Painter of the tableau"
-          required
-        />
-        <input
-          type="text"
-          v-model="newTableau.movement"
-          placeholder="Movement"
-          required
-        />
-        <input
-          type="number"
-          v-model="newTableau.date"
-          placeholder="Date"
-          required
-        />
-        <input
-          type="text"
-          v-model="newTableau.image"
-          placeholder="Lien vers l'image"
-        />
-        <button type="submit">Ajouter</button>
+        <h2>Nouveau produit à ajouter</h2>
+        <input class="title" type="text" v-model="newTableau.name" placeholder="Name of the Tableau" required>
+        <input type="number" v-model="newTableau.price" placeholder="Price" required>
+        <input class="text" type="text" v-model="newTableau.painter" placeholder="Name of the painter" required>
+        <input class="text" type="text" v-model="newTableau.movement" placeholder="Movement type" required>
+        <input type="number" v-model="newTableau.date" placeholder="Date of the tableau" required>
+        <input type="text" v-model="newTableau.image" placeholder="Lien vers l'image">
+        <button class="add-basket" type="submit">Ajouter</button>
       </form>
     </div>
   </div>
@@ -187,48 +125,48 @@ module.exports = {
         name: "",
         painter: "",
         movement:"",
-        date: 0,
+        date: null,
         image: "",
-        price: 0,
+        price: null,
       },
       editingTableau: {
         id: -1,
         name: "",
         painter: "",
         movement:"",
-        date: 0,
+        date: null,
         image: "",
-        price: 0,
+        price: null,
       },
       isActivated: false,
     };
   },
 
-    methods: {
+methods: {
     addTableau() {
-      this.$emit("add-tableau", this.newTableau);
-    },
-    addToPanier(tableauId) {
-      this.$emit("add-to-panier", tableauId, this.tableau);
-    },
-    removeFromPanier(tableauId) {
-      this.$emit("remove-from-panier", tableauId);
+      this.$emit('add-tableau', this.newTableau)
     },
     deleteTableau(tableauId) {
-      this.$emit("delete-tableau", tableauId);
+      this.$emit('delete-tableau', tableauId)
+    },
+    addToPanier(tableauId) {
+      this.$emit('add-to-panier', tableauId)
+    },
+    removeFromPanier(tableauId) {
+      this.$emit('remove-from-panier', tableauId)
     },
     editTableau(tableau) {
-      this.editingTableau.id = tableau.id;
-      this.editingTableau.name = tableau.name;
-      this.editingTableau.painter = tableau.painter;
-      this.editingTableau.movement = tableau.movement;
-      this.editingTableau.date = tableau.date;
-      this.editingTableau.image = tableau.image;
-      this.editingTableau.price = tableau.price;
+      this.editingTableau.id = tableau.id
+      this.editingTableau.name = tableau.name
+      this.editingTableau.painter = tableau.painter
+      this.editingTableau.movement = tableau.movement
+      this.editingTableau.date = tableau.date
+      this.editingTableau.image = tableau.image
+      this.editingTableau.price = tableau.price
     },
     sendEditTableau() {
-      this.$emit("update-tableau", this.editingTableau);
-      this.abortEditTableau();
+      this.$emit('update-tableau', this.editingTableau)
+      this.abortEditTableau()
     },
     abortEditTableau() {
       this.editingTableau = {
@@ -239,8 +177,13 @@ module.exports = {
         date: 0,
         image: "",
         price: 0,
-      };
+      }
     },
-  },
-};
+    isInPanier(tableauId) {
+      return this.panier.tableaux.some(a => a.id === tableauId)
+    }
+  }
+}
 </script>
+
+
