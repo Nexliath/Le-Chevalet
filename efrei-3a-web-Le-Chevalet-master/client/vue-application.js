@@ -18,56 +18,56 @@ var app = new Vue({
   router,
   el: '#app',
   data: {
-    articles: [],
+    tableaux: [],
     panier: {
       createdAt: null,
       updatedAt: null,
-      articles: []
+      tableaux: []
     }
   },
   async mounted () {
-    const res = await axios.get('/api/articles')
-    this.articles = res.data
+    const res = await axios.get('/api/tableaux')
+    this.tableaux = res.data
 
     const res2 = await axios.get('/api/panier')
     this.panier = res2.data
   },
   methods: {
-    async addArticle (article) {
-      const res = await axios.post('/api/article', article)
-      this.articles.push(res.data)
+    async addTableau (tableau) {
+      const res = await axios.post('/api/tableau', tableau)
+      this.tableaux.push(res.data)
     },
 
-    async addToPanier(articleId){
-      const article = {id: articleId, quantity: 1}
-      const res = await axios.post('/api/panier', article)
+    async addToPanier(tableauId){
+      const tableau = {id: tableauId, quantity: 1}
+      const res = await axios.post('/api/panier', tableau)
 
       this.panier = res.data
 
     },
-    async updateArticle (newArticle) {
-      await axios.put('/api/article/' + newArticle.id, newArticle)
-      const article = this.articles.find(a => a.id === newArticle.id)
-      article.name = newArticle.name
-      article.description = newArticle.description
-      article.image = newArticle.image
-      article.price = newArticle.price
+    async updateTableau (newTableau) {
+      await axios.put('/api/tableau/' + newTableau.id, newTableau)
+      const tableau = this.tableaux.find(a => a.id === newTableau.id)
+      tableau.name = newTableau.name
+      tableau.description = newTableau.description
+      tableau.image = newTableau.image
+      tableau.price = newTableau.price
     },
-    async deleteArticle (articleId) {
-      await axios.delete('/api/article/' + articleId)
-      const index = this.articles.findIndex(a => a.id === articleId)
-      this.articles.splice(index, 1)
+    async deleteTableau (tableauId) {
+      await axios.delete('/api/tableau/' + tableauId)
+      const index = this.tableaux.findIndex(a => a.id === tableauId)
+      this.tableaux.splice(index, 1)
     },
-    async removeFromPanier (articleId) {
+    async removeFromPanier (tableauId) {
       
-      const res = await axios.delete('/api/panier/' + articleId)
+      const res = await axios.delete('/api/panier/' + tableauId)
       this.panier = res.data
     },
 
-    async putInPanier (articleId, articleQuantity) {
-      const test = {id: articleId, quantity: articleQuantity}
-      const res = await axios.put('/api/panier/'+ articleId, test)
+    async putInPanier (tableauId, tableauQuantity) {
+      const test = {id: tableauId, quantity: tableauQuantity}
+      const res = await axios.put('/api/panier/'+ tableauId, test)
       this.panier = res.data
-    },
+    }, 
   }
 })

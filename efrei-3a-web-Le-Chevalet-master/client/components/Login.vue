@@ -82,7 +82,7 @@
 <script>
 module.exports = {
   props: {
-    articles: { type: Array, default: [] },
+    tableaux: { type: Array, default: [] },
     panier: { type: Object },
   },
   data() {

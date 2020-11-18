@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const articles = require('../data/articles.js')
+const tableaux = require('../data/articles.js')
 
 class Panier {
   constructor () {
     this.createdAt = new Date()
     this.updatedAt = new Date()
-    this.articles = []
+    this.tableaux = []
   }
 }
 
@@ -45,25 +45,25 @@ router.post('/panier', (req, res) => {
   const id = parseInt(req.body.id) 
   const quantity = parseInt(req.body.quantity)
   
-  if (isNaN(id) || id>articles.length || 
+  if (isNaN(id) || id>tableaux.length || 
     isNaN(quantity) || quantity <= 0){
     
     res.status(400).json({ message:'bad request'})
     return
   }
   
-  for (var i= 0; i < req.session.panier.articles.length; i++){
-    if (req.session.panier.articles[i].id == id){
+  for (var i= 0; i < req.session.panier.tableaux.length; i++){
+    if (req.session.panier.tableaux[i].id == id){
       res.status(400).json ({ message: 'bad resquest'})
     }
   }
 
-  const article = {
+  const tableau = {
     id: id, 
     quantity: quantity
   }
 
-  req.session.panier.articles.push(article)
+  req.session.panier.tableaux.push(tableau)
   res.json(req.session.panier)
 })
 
@@ -81,7 +81,7 @@ router.post('/panier/pay', (req, res) => {
   res.send("Merci " + prenom +" "+ nom + " pour votre achat")
 
   req.session.destroy()
-  res.json(res.session.panier.articles)
+  res.json(res.session.panier.tableaux)
   
 })
 
@@ -90,25 +90,25 @@ router.post('/panier/pay', (req, res) => {
  * Cette route doit permettre de changer la quantité d'un article dans le panier
  * Le body doit contenir la quantité voulue
  */
-router.put('/panier/:articleId', (req, res) => {
-  const id = parseInt(req.params.articleId)
+router.put('/panier/:tableauId', (req, res) => {
+  const id = parseInt(req.params.tableauId)
   const quantity = parseInt(req.body.quantity) // we recup the quantity value
   var i = 0
 
-  if(isNaN(id) || (id > articles.length || quantity <= 0)){
+  if(isNaN(id) || (id > tableaux.length || quantity <= 0)){
     res.status(400).json({message:'bad request'})
     return}
 
-    while(i < req.session.panier.articles.length && req.session.panier.articles[i].id != id){
+    while(i < req.session.panier.tableaux.length && req.session.panier.tableaux[i].id != id){
       i++;
     }
 
-    if(req.session.panier.articles[i].id != id){
+    if(req.session.panier.tableaux[i].id != id){
       res.status(400).json({message: 'bad request'}) // if the id of the article is not found into the articles arrays
       return
     }
 
-    req.session.panier.articles[i].quantity = quantity // we change the value quantity
+    req.session.panier.tableaux[i].quantity = quantity // we change the value quantity
     
     res.json(req.session.panier) // we return the basket
 
@@ -119,24 +119,24 @@ router.put('/panier/:articleId', (req, res) => {
  * Cette route doit supprimer un article dans le panier
  */
 
-router.delete('/panier/:articleId', (req, res) => {
-  const id = parseInt(req.params.articleId) // we recup the article id 
+router.delete('/panier/:tableauId', (req, res) => {
+  const id = parseInt(req.params.tableauId) // we recup the article id 
   var i = 0
 
-  if(isNaN(id) || (id > articles.length)){
+  if(isNaN(id) || (id > tableaux.length)){
     res.status(400).json({message:'bad request'})
     return
   } // we test if not number or not in the articles arrays, there is an error 
 
-  while(i < req.session.panier.articles.length && req.session.panier.articles[i].id != id){
+  while(i < req.session.panier.tableaux.length && req.session.panier.tableaux[i].id != id){
     i++;
   }
-  if(req.session.panier.articles[i].id != id){
+  if(req.session.panier.tableaux[i].id != id){
     res.status(400).json({message: 'bad request'}) // if the id of the article is not found into the articles arrays
     return
   }
 
-  req.session.panier.articles.splice(i,1) // we remove the wanted article from the basket
+  req.session.panier.tableaux.splice(i,1) // we remove the wanted article from the basket
 
   res.json(req.session.panier) // we return the modified array 
 })
@@ -145,8 +145,8 @@ router.delete('/panier/:articleId', (req, res) => {
 /**
  * Cette route envoie l'intégralité des articles du site
  */
-router.get('/articles', (req, res) => {
-  res.json(articles)
+router.get('/tableaux', (req, res) => {
+  res.json(tableaux)
 })
 
 /**
@@ -155,7 +155,7 @@ router.get('/articles', (req, res) => {
  * NOTE: lorsqu'on redémarre le serveur, l'article ajouté disparait
  *   Si on voulait persister l'information, on utiliserait une BDD (mysql, etc.)
  */
-router.post('/article', (req, res) => {
+router.post('/tableau', (req, res) => {
   const name = req.body.name
   const description = req.body.description
   const image = req.body.image
@@ -170,16 +170,16 @@ router.post('/article', (req, res) => {
     return
   }
 
-  const article = {
-    id: articles.length + 1,
+  const tableau = {
+    id: tableaux.length + 1,
     name: name,
     description: description,
     image: image,
     price: price
   }
-  articles.push(article)
+  tableaux.push(tableau)
   // on envoie l'article ajouté à l'utilisateur
-  res.json(article)
+  res.json(tableau)
 })
 
 /**
@@ -191,34 +191,34 @@ router.post('/article', (req, res) => {
  * Comme ces trois routes ont un comportement similaire, on regroupe leurs fonctionnalités communes dans un middleware
  */
 
-function parseArticle (req, res, next) {
-  const articleId = parseInt(req.params.articleId)
+function parseTableau (req, res, next) {
+  const tableauId = parseInt(req.params.tableauId)
 
   // si articleId n'est pas un nombre (NaN = Not A Number), alors on s'arrête
-  if (isNaN(articleId)) {
-    res.status(400).json({ message: 'articleId should be a number' })
+  if (isNaN(tableauId)) {
+    res.status(400).json({ message: 'tableauId should be a number' })
     return
   }
   // on affecte req.articleId pour l'exploiter dans toutes les routes qui en ont besoin
-  req.articleId = articleId
+  req.tableauId = tableauId
 
-  const article = articles.find(a => a.id === req.articleId)
-  if (!article) {
-    res.status(404).json({ message: 'article ' + articleId + ' does not exist' })
+  const tableau = tableaux.find(a => a.id === req.tableauId)
+  if (!tableau) {
+    res.status(404).json({ message: 'tableau ' + tableauId + ' does not exist' })
     return
   }
   // on affecte req.article pour l'exploiter dans toutes les routes qui en ont besoin
-  req.article = article
+  req.tableau = tableau
   next()
 }
 
-router.route('/article/:articleId')
+router.route('/tableau/:tableauId')
   /**
    * Cette route envoie un article particulier
    */
-  .get(parseArticle, (req, res) => {
+  .get(parseTableau, (req, res) => {
     // req.article existe grâce au middleware parseArticle
-    res.json(req.article)
+    res.json(req.tableau)
   })
 
   /**
@@ -228,23 +228,23 @@ router.route('/article/:articleId')
    *   Si on voulait persister l'information, on utiliserait une BDD (mysql, etc.)
    */
 
-  .put(parseArticle, (req, res) => {
+  .put(parseTableau, (req, res) => {
     const name = req.body.name
     const description = req.body.description
     const image = req.body.image
     const price = parseInt(req.body.price)
 
-    req.article.name = name
-    req.article.description = description
-    req.article.image = image
-    req.article.price = price
+    req.tableau.name = name
+    req.tableau.description = description
+    req.tableau.image = image
+    req.tableau.price = price
     res.send()
   })
 
-  .delete(parseArticle, (req, res) => {
-    const index = articles.findIndex(a => a.id === req.articleId)
+  .delete(parseTableau, (req, res) => {
+    const index = tableaux.findIndex(a => a.id === req.tableauId)
 
-    articles.splice(index, 1) // remove the article from the array
+    tableaux.splice(index, 1) // remove the article from the array
     res.send()
   })
 

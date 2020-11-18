@@ -67,41 +67,41 @@
   <!-- End description of the collection  -->
 
     <div class="content-collection" id="content-collection">
-      <article v-for="article in articles" :key="article.id">
-        <div class="article-content" v-if="editingArticle.id !== article.id">
+      <article v-for="tableau in tableaux" :key="tableau.id">
+        <div class="article-content" v-if="editingTableau.id !== tableau.id">
           <div class="article-title">
             <div class="article-img">
               <div
-                :style="{ backgroundImage: 'url(' + article.image + ')' }"
+                :style="{ backgroundImage: 'url(' + tableau.image + ')' }"
               ></div>
             </div>
 
-            <h2>{{ article.name }} - {{ article.price }}€</h2>
+            <h2>{{ tableau.name }} - {{ tableau.price }}€</h2>
             <div class="paragraphe">
-              {{ article.description }}
+              {{ tableau.description }}
             </div>
             <div>
               <button
                 class="button"
                 v-if="
-                  panier.articles.find((a) => a.id === article.id) == undefined
+                  panier.tableaux.find((a) => a.id === tableau.id) == undefined
                 "
-                @click="addToPanier(article.id)"
+                @click="addToPanier(tableau.id)"
               >
                 Ajouter au panier
               </button>
               <button
                 class="button"
                 v-else
-                @click="removeFromPanier(article.id)"
+                @click="removeFromPanier(tableau.id)"
               >
                 Retirer du panier
               </button>
 
-              <button class="button" @click="deleteArticle(article.id)">
+              <button class="button" @click="deleteTableau(tableau.id)">
                 Supprimer
               </button>
-              <button class="button" @click="editArticle(article)">
+              <button class="button" @click="editTableau(tableau)">
                 Modifier
               </button>
             </div>
@@ -111,47 +111,47 @@
           <div class="article-title">
             <input
             type="text"
-            v-model="editingArticle.image"
+            v-model="editingTableau.image"
             placeholder="Lien vers l'image"
           />
             <h2>
-              <input type="text" v-model="editingArticle.name" /> -
-              <input type="number" v-model="editingArticle.price" />
+              <input type="text" v-model="editingTableau.name" /> -
+              <input type="number" v-model="editingTableau.price" />
             </h2>
-            <p><textarea v-model="editingArticle.description"></textarea></p>
+            <p><textarea v-model="editingTableau.description"></textarea></p>
 
             <div>
-              <button @click="sendEditArticle()">Valider</button>
-              <button @click="abortEditArticle()">Annuler</button>
+              <button @click="sendEditTableau()">Valider</button>
+              <button @click="abortEditTableau()">Annuler</button>
             </div>
           </div>
         </div>
       </article>
     </div>
     <div class="formulaire">
-      <form @submit.prevent="addArticle">
+      <form @submit.prevent="addTableau">
         <h2>Nouveau produit à ajouter</h2>
         <input
           type="text"
-          v-model="newArticle.name"
+          v-model="newTableau.name"
           placeholder="Nom du produit"
           required
         />
         <input
           type="number"
-          v-model="newArticle.price"
+          v-model="newTableau.price"
           placeholder="Prix"
           required
         />
         <textarea
           type="text"
-          v-model="newArticle.description"
+          v-model="newTableau.description"
           placeholder="Description du produit"
           required
         ></textarea>
         <input
           type="text"
-          v-model="newArticle.image"
+          v-model="newTableau.image"
           placeholder="Lien vers l'image"
         />
         <button type="submit">Ajouter</button>
@@ -163,18 +163,18 @@
 <script>
 module.exports = {
   props: {
-    articles: { type: Array, default: [] },
+    tableaux: { type: Array, default: [] },
     panier: { type: Object },
   },
   data() {
     return {
-      newArticle: {
+      newTableau: {
         name: "",
         description: "",
         image: "",
         price: 0,
       },
-      editingArticle: {
+      editingTableau: {
         id: -1,
         name: "",
         description: "",
@@ -186,31 +186,31 @@ module.exports = {
   },
 
     methods: {
-    addArticle() {
-      this.$emit("add-article", this.newArticle);
+    addTableau() {
+      this.$emit("add-tableau", this.newTableau);
     },
-    addToPanier(articleId) {
-      this.$emit("add-to-panier", articleId, this.article);
+    addToPanier(tableauId) {
+      this.$emit("add-to-panier", tableauId, this.tableau);
     },
-    removeFromPanier(articleId) {
-      this.$emit("remove-from-panier", articleId);
+    removeFromPanier(tableauId) {
+      this.$emit("remove-from-panier", tableauId);
     },
-    deleteArticle(articleId) {
-      this.$emit("delete-article", articleId);
+    deleteTableau(tableauId) {
+      this.$emit("delete-tableau", tableauId);
     },
-    editArticle(article) {
-      this.editingArticle.id = article.id;
-      this.editingArticle.name = article.name;
-      this.editingArticle.description = article.description;
-      this.editingArticle.image = article.image;
-      this.editingArticle.price = article.price;
+    editTableau(tableau) {
+      this.editingTableau.id = tableau.id;
+      this.editingTableau.name = tableau.name;
+      this.editingTableau.description = tableau.description;
+      this.editingTableau.image = tableau.image;
+      this.editingTableau.price = tableau.price;
     },
-    sendEditArticle() {
-      this.$emit("update-article", this.editingArticle);
-      this.abortEditArticle();
+    sendEditTableau() {
+      this.$emit("update-tableau", this.editingTableau);
+      this.abortEditTableau();
     },
-    abortEditArticle() {
-      this.editingArticle = {
+    abortEditTableau() {
+      this.editingTableau = {
         id: -1,
         name: "",
         description: "",
