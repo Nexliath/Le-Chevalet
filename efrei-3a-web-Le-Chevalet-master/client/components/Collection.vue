@@ -71,6 +71,54 @@
 
     <div>
       <h1>PAINTING LIST</h1>
+      <div class="container-test">
+      <h3 class="title">Test</h3>
+      <div class="content">
+        <a href="https://unsplash.com/photos/HkTMcmlMOUQ" target="_blank">
+          <div class="content-overlay"></div>
+          <img
+            class="content-image"
+            src="https://blog.artsper.com/wp-content/uploads/2018/12/Gerhard-Richter-Abstraktes-Bild-946-3.jpg"
+          />
+          <div class="content-details fadeIn-top">
+            <h3>This is a title</h3>
+            <p>This is a short description</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="container-test">
+      <h3 class="title">Test2</h3>
+      <div class="content">
+        <a href="https://unsplash.com/photos/HkTMcmlMOUQ" target="_blank">
+          <div class="content-overlay"></div>
+          <img
+            class="content-image"
+            src="https://blog.artsper.com/wp-content/uploads/2018/12/1.jpg"
+          />
+          <div class="content-details fadeIn-top">
+            <h3>This is a title</h3>
+            <p>This is a short description</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="container-test">
+      <h3 class="title">Test</h3>
+      <div class="content">
+        <a href="https://unsplash.com/photos/HkTMcmlMOUQ" target="_blank">
+          <div class="content-overlay"></div>
+          <img
+            class="content-image"
+            src="https://images.unsplash.com/photo-1433360405326-e50f909805b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=359e8e12304ffa04a38627a157fc3362"
+          />
+          <div class="content-details fadeIn-top">
+            <h3>This is a title</h3>
+            <p>This is a short description</p>
+          </div>
+        </a>
+      </div>
+    </div>
       <article v-for="tableau in tableaux" :key="tableau.id">
         <div class="article-img">
           <div
@@ -112,7 +160,7 @@
           <div class="article-title">
             <h2>
               <input type="text" v-model="editingTableau.name" />,
-              <input type="text" v-model="editingTableau.movement"/> -
+              <input type="text" v-model="editingTableau.movement" /> -
               <input type="number" v-model="editingTableau.price" />
             </h2>
             <div>
@@ -125,14 +173,18 @@
             </div>
           </div>
           <p>
-            <input type="text" v-model="editingTableau.painter" placeholder="Painter name"/>, 
             <input
-            type="number"
-            v-model="editingTableau.date"
-            placeholder="Date of the tableau"
-          />
+              type="text"
+              v-model="editingTableau.painter"
+              placeholder="Painter name"
+            />,
+            <input
+              type="number"
+              v-model="editingTableau.date"
+              placeholder="Date of the tableau"
+            />
           </p>
-          
+
           <input
             type="text"
             v-model="editingTableau.image"
@@ -176,7 +228,7 @@
             <input
               placeholder="Painting's date"
               v-model="newTableau.date"
-              type="text"
+              type="number"
               tabindex="4"
               required
             />
