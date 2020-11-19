@@ -6,8 +6,8 @@ const router = express.Router()
 const client = new Client({
   user: 'postgres',
   host: 'localhost',
-  password: 'postgrespwd',
-  database: 'webproject'
+  password: 'viviazerty75018',
+  database: 'webproject', 
 })
 
 client.connect()

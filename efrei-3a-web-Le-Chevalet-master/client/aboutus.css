@@ -211,6 +211,7 @@ p {
 
 /* home-cover Section */
 #about-cover {
+	display: flexbox;
 	background-image: url(./img/about/cover.jpg);
 	background-size: cover;
 	background-position: top center;

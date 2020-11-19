@@ -312,6 +312,8 @@ p {
 	justify-content: center;
 	flex-wrap: wrap;
 	margin-top: 50px;
+	flex-direction: row;
+
 }
 #services .service-item {
 	flex-basis: 80%;
@@ -335,7 +337,7 @@ p {
 	top: 0;
 	height: 100%;
 	width: 100%;
-	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	background: linear-gradient(60deg, #ffffff 0%, #f5f8d3 100%);
 	opacity: .9;
 	z-index: -1;
 }
@@ -343,15 +345,17 @@ p {
 	height: 80px;
 	width: 80px;
 	margin-bottom: 20px;
+	margin-left: 60px;
 }
 #services .service-item h2 {
 	font-size: 2rem;
 	color: rgb(212, 199, 97);
+	margin-left: 56px;
 	margin-bottom: 10px;
 	text-transform: uppercase;
 }
 #services .service-item p {
-	color: white;
+	color: black;
 	text-align: left;
 }
 /* End Services Section */
