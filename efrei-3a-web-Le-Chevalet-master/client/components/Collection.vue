@@ -79,28 +79,26 @@
             </div>
           </a>
         </div>
-        <div>
-              <button class="delete" @click="deleteTableau(tableau.id)">
-                Delete
-              </button>
-              <button class="modify" @click="editTableau(tableau)">
-                Modify
-              </button>
-              <button
-                class="remove-basket"
-                v-if="isInPanier(tableau.id)"
-                @click="removeFromPanier(tableau.id)"
-              >
-                Delete from basket
-              </button>
-              <button
-                class="add-basket"
-                v-else="isInPanier(tableau.id)"
-                @click="addToPanier(tableau.id)"
-              >
-                Add to basket
-              </button>
-            </div>
+        <div class="content-button">
+          <button class="delete" @click="deleteTableau(tableau.id)">
+            Delete
+          </button>
+          <button class="modify" @click="editTableau(tableau)">Modify</button>
+          <button
+            class="remove-basket"
+            v-if="isInPanier(tableau.id)"
+            @click="removeFromPanier(tableau.id)"
+          >
+            Delete from basket
+          </button>
+          <button
+            class="add-basket"
+            v-else="isInPanier(tableau.id)"
+            @click="addToPanier(tableau.id)"
+          >
+            Add to basket
+          </button>
+        </div>
       </div>
 
       <article v-for="tableau in tableaux" :key="tableau.id">
