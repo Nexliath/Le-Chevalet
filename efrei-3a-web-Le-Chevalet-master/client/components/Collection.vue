@@ -47,7 +47,7 @@
         <div>
           <h1>The collection<span></span></h1>
           <br />
-          <a href="#" type="button" class="cta">Take a look</a>
+          <a href="#services" type="button" class="cta">Take a look</a>
         </div>
       </div>
     </section>
@@ -55,60 +55,155 @@
 
     <!-- description of the collection  -->
     <section id="services">
-    <div class="services container">
-      <div class="service-top">
-        <h1 class="section-title">A lar<span>g</span>e collection</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum deleniti maiores pariatur assumenda quas
-          magni et, doloribus quod voluptate quasi molestiae magnam officiis dolorum, dolor provident atque molestias
-          voluptatum explicabo!</p>
+      <div class="services container">
+        <div class="service-top">
+          <h1 class="section-title">A lar<span>g</span>e collection</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum
+            deleniti maiores pariatur assumenda quas magni et, doloribus quod
+            voluptate quasi molestiae magnam officiis dolorum, dolor provident
+            atque molestias voluptatum explicabo!
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- End description of the collection  -->
+    </section>
+    <!-- End description of the collection  -->
 
-  <div>
-      <h1>Liste des tableaux</h1>
+    <div>
+      <h1>PAINTING LIST</h1>
       <article v-for="tableau in tableaux" :key="tableau.id">
         <div class="article-img">
-          <div class="article" :style="{ backgroundImage: 'url(' + tableau.image + ')' }">
-          </div>
+          <div
+            class="article"
+            :style="{ backgroundImage: 'url(' + tableau.image + ')' }"
+          ></div>
         </div>
         <div class="article-content" v-if="editingTableau.id !== tableau.id">
           <div class="article-title">
-            <h2>{{ tableau.name }}, {{ tableau.date }}- {{ tableau.price }}€</h2>
-            <p>{{ tableau.painter }}, {{ tableau.movement }}</p>
+            <h2>
+              {{ tableau.name }}, {{ tableau.movement }} - {{ tableau.price }}€
+            </h2>
+            <p>{{ tableau.painter }}, {{ tableau.date }}</p>
             <div>
-              <button class="delete" @click="deleteTableau(tableau.id)">Supprimer</button>
-              <button class="modify" @click="editTableau(tableau)">Modifier</button>
-              <button class="remove-basket" v-if="isInPanier(tableau.id)" @click="removeFromPanier(tableau.id)">Retirer du panier</button>
-              <button class="add-basket" v-else="isInPanier(tableau.id)" @click="addToPanier(tableau.id)">Ajouter au panier</button>
+              <button class="delete" @click="deleteTableau(tableau.id)">
+                Delete
+              </button>
+              <button class="modify" @click="editTableau(tableau)">
+                Modify
+              </button>
+              <button
+                class="remove-basket"
+                v-if="isInPanier(tableau.id)"
+                @click="removeFromPanier(tableau.id)"
+              >
+                Delete from basket
+              </button>
+              <button
+                class="add-basket"
+                v-else="isInPanier(tableau.id)"
+                @click="addToPanier(tableau.id)"
+              >
+                Add to basket
+              </button>
             </div>
           </div>
         </div>
         <div class="article-content" v-else>
           <div class="article-title">
-            <h2><input type="text" v-model="editingTableau.name"> - <input type="number" v-model="editingTableau.price"></h2>
+            <h2>
+              <input type="text" v-model="editingTableau.name" />,
+              <input type="text" v-model="editingTableau.movement"/> -
+              <input type="number" v-model="editingTableau.price" />
+            </h2>
             <div>
-              <button class="add-basket" @click="sendEditTableau()">Valider</button>
-              <button class="delete" @click="abortEditTableau()">Annuler</button>
+              <button class="add-basket" @click="sendEditTableau()">
+                Confirm
+              </button>
+              <button class="delete" @click="abortEditTableau()">
+                Discard
+              </button>
             </div>
           </div>
-          <p><input type="text" v-model="editingTableau.painter" placeholder="Painter name"></p>
-          <input type="text" v-model="editingTableau.movement" placeholder="Movement of the Tableau">
-          <input type="number" v-model="editingTableau.date" placeholder="Date of the tableau">
-          <input type="text" v-model="editingTableau.image" placeholder="Lien vers l'image">
+          <p>
+            <input type="text" v-model="editingTableau.painter" placeholder="Painter name"/>, 
+            <input
+            type="number"
+            v-model="editingTableau.date"
+            placeholder="Date of the tableau"
+          />
+          </p>
+          
+          <input
+            type="text"
+            v-model="editingTableau.image"
+            placeholder="Lien vers l'image"
+          />
         </div>
       </article>
-      <form @submit.prevent="addTableau">
-        <h2>Nouveau produit à ajouter</h2>
-        <input class="title" type="text" v-model="newTableau.name" placeholder="Name of the Tableau" required>
-        <input type="number" v-model="newTableau.price" placeholder="Price" required>
-        <input class="text" type="text" v-model="newTableau.painter" placeholder="Name of the painter" required>
-        <input class="text" type="text" v-model="newTableau.movement" placeholder="Movement type" required>
-        <input type="number" v-model="newTableau.date" placeholder="Date of the tableau" required>
-        <input type="text" v-model="newTableau.image" placeholder="Lien vers l'image">
-        <button class="add-basket" type="submit">Ajouter</button>
-      </form>
+      <div class="container-form">
+        <form id="newPainting" @submit.prevent="addTableau">
+          <h3>Add a new paint<span>i</span>ng</h3>
+          <h4>Please fill this form</h4>
+          <fieldset>
+            <input
+              placeholder="Painting's name"
+              v-model="newTableau.name"
+              type="text"
+              tabindex="1"
+              required
+              autofocus
+            />
+          </fieldset>
+          <fieldset>
+            <input
+              placeholder="Painter's name"
+              v-model="newTableau.painter"
+              type="text"
+              tabindex="2"
+              required
+            />
+          </fieldset>
+          <fieldset>
+            <input
+              placeholder="Movement type"
+              v-model="newTableau.movement"
+              type="text"
+              tabindex="3"
+              required
+            />
+          </fieldset>
+          <fieldset>
+            <input
+              placeholder="Painting's date"
+              v-model="newTableau.date"
+              type="text"
+              tabindex="4"
+              required
+            />
+          </fieldset>
+          <fieldset>
+            <input
+              placeholder="Painting's link picture"
+              v-model="newTableau.image"
+              type="text"
+              tabindex="5"
+              required
+            />
+          </fieldset>
+          <fieldset>
+            <input
+              placeholder="Price"
+              v-model="newTableau.price"
+              type="number"
+              tabindex="6"
+              required
+            />
+          </fieldset>
+          <fieldset>
+            <button type="submit">Add the painting</button>
+          </fieldset>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -124,7 +219,7 @@ module.exports = {
       newTableau: {
         name: "",
         painter: "",
-        movement:"",
+        movement: "",
         date: null,
         image: "",
         price: null,
@@ -133,7 +228,7 @@ module.exports = {
         id: -1,
         name: "",
         painter: "",
-        movement:"",
+        movement: "",
         date: null,
         image: "",
         price: null,
@@ -142,48 +237,48 @@ module.exports = {
     };
   },
 
-methods: {
+  methods: {
     addTableau() {
-      this.$emit('add-tableau', this.newTableau)
+      this.$emit("add-tableau", this.newTableau);
     },
     deleteTableau(tableauId) {
-      this.$emit('delete-tableau', tableauId)
+      this.$emit("delete-tableau", tableauId);
     },
     addToPanier(tableauId) {
-      this.$emit('add-to-panier', tableauId)
+      this.$emit("add-to-panier", tableauId);
     },
     removeFromPanier(tableauId) {
-      this.$emit('remove-from-panier', tableauId)
+      this.$emit("remove-from-panier", tableauId);
     },
     editTableau(tableau) {
-      this.editingTableau.id = tableau.id
-      this.editingTableau.name = tableau.name
-      this.editingTableau.painter = tableau.painter
-      this.editingTableau.movement = tableau.movement
-      this.editingTableau.date = tableau.date
-      this.editingTableau.image = tableau.image
-      this.editingTableau.price = tableau.price
+      this.editingTableau.id = tableau.id;
+      this.editingTableau.name = tableau.name;
+      this.editingTableau.painter = tableau.painter;
+      this.editingTableau.movement = tableau.movement;
+      this.editingTableau.date = tableau.date;
+      this.editingTableau.image = tableau.image;
+      this.editingTableau.price = tableau.price;
     },
     sendEditTableau() {
-      this.$emit('update-tableau', this.editingTableau)
-      this.abortEditTableau()
+      this.$emit("update-tableau", this.editingTableau);
+      this.abortEditTableau();
     },
     abortEditTableau() {
       this.editingTableau = {
         id: -1,
         name: "",
         painter: "",
-        movement:"",
-        date: 0,
+        movement: "",
+        date: null,
         image: "",
-        price: 0,
-      }
+        price: null,
+      };
     },
     isInPanier(tableauId) {
-      return this.panier.tableaux.some(a => a.id === tableauId)
-    }
-  }
-}
+      return this.panier.tableaux.some((a) => a.id === tableauId);
+    },
+  },
+};
 </script>
 
 

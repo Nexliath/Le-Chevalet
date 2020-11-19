@@ -370,3 +370,7 @@ p {
 	/* End header */
 }
 /* End  Media Query For Desktop */
+
+span {
+	color: rgb(212, 199, 97);
+}
