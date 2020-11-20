@@ -1,4 +1,4 @@
-/* collection-cover Section */
+/* --------------------------- collection-cover Section --------------------------------------- */
 
 #collection-cover {
 	background-image: url(./img/collection/cover.jpeg);
@@ -64,27 +64,10 @@
 	animation-delay: 2.5s;
 }
 
-/* End collection-cover Section */
-
-#services .services {
-	flex-direction: column;
-	text-align: center;
-	max-width: 1500px;
-	margin: 0 auto;
-	padding: 100px 0;
-}
-#services .service-top {
-	max-width: 500px;
-	margin: 0 auto;
-}
+/* -------------------------- End collection-cover Section -------------------------------- */
 
 h1 {
 	margin-bottom: 20px;
-  }
-  
-  article {
-	display: flex;
-	margin-bottom: 25px;
   }
   
   h2 {
@@ -101,82 +84,38 @@ h1 {
 	border-radius: 5px;
   }
   
-  /* Buttons*/
+  /* ---------------------------------------- Buttons ----------------------------------------- */
 
-  .delete {
-	background-color: rgb(253, 37, 37);
+  /* All buttons */
+  .button-action{
+    margin-top:20px;
   }
   .delete:hover {
-	background-color: rgb(252, 19, 19);
-	transition: background-color 0.3s ease-in-out;
 	cursor: pointer;
   }
-  
-  .modify {
-	background-color: lightskyblue;
-  }
-  .modify:hover {
-	background-color: rgb(88, 191, 255);
-	transition: background-color 0.3s ease-in-out;
-	cursor: pointer;
-  }
-  
-  .add-basket {
-	background-color: #4CAF50;
-  }
-  .add-basket:hover {
-	background-color: #43A047;
-	transition: background-color 0.3s ease-in-out;
-	cursor: pointer;
-  }
-  
-  .remove-basket {
-	background-color: black;
-	color: white;
-  }
-  .remove-basket:hover {
 
-	transition: background-color 0.3s ease-in-out;
+  .modify:hover {
 	cursor: pointer;
   }
   
-  .article-img {
-	flex: 1;
+  .add-basket:hover {
+	cursor: pointer;
   }
   
-  .article-img div {
-	width: 150px;
-	height: 150px;
-	background-size: cover;
-  }
-  
-  .article-content {
-	flex: 3;
-  }
-  
-  .article-title {
-	margin-bottom: 10px;
-  }
-  
-  .article {
-	padding: 25px;
-	border-radius: 25px;
-	background: #ffffff;
-	box-shadow:  20px 20px 60px #d9d9d9,
-				-20px -20px 60px #ffffff;
+  .remove-basket:hover {
+	cursor: pointer;
   }
   
   .title {
 	color: black;
   }
 
-  /* Form design */
+  /* ------------------------------------------- Form design ------------------------------------------------*/
 
   .container-form {
 	max-width: 400px;
-	width: 100%;
-	margin: 0 auto;
-	position: relative;
+  width: 100%;
+  margin: auto;
   }
   
   #newPainting input[type="text"],
@@ -270,7 +209,7 @@ h1 {
   }
 
 
-  /*Boutique - Solo painting parameter*/
+  /* -------------------------------------------- Boutique - Solo painting parameter ---------------------------------------------- */
   @import url(https://fonts.googleapis.com/css?family=Raleway);
 
 *, *:before, *:after{
@@ -279,6 +218,25 @@ h1 {
   -webkit-box-sizing: border-box;
   -moz-box-sizing:border-box;
   box-sizing: border-box;
+}
+
+.boutique h1{
+  margin-top:40px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 35px;
+  text-transform: uppercase;
+}
+
+.boutique p{
+  line-height: 2.5rem;
+	font-weight: 300;
+  letter-spacing: .05rem;
+  text-align: center;
+}
+
+.intro{
+  margin-bottom: 40px;
 }
 
 .main-title{
@@ -318,12 +276,14 @@ h1 {
   max-width: 400px;
   margin: auto;
   overflow: hidden;
+  box-shadow: 5px 5px 10px rgb(95, 95, 95);
+  
 }
 
 .content-button {
   position: relative;
-  width: 90%;
-  max-width: 250px;
+  width: 100%;
+  max-width: 260px;
   margin: auto;
   overflow: hidden;
 }
@@ -345,11 +305,13 @@ h1 {
 
 .content:hover .content-overlay{
   opacity: 1;
+  border-radius: 2%;
 }
 
 .content-image{
   width: 100%;
   height: 300px;
+  border-radius: 2%;
 }
 
 .content-details {
@@ -391,23 +353,4 @@ h1 {
   top: 20%;
 }
 
-/* Boutique css */
 
-.boutique h1{
-  margin-top:40px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 35px;
-  text-transform: uppercase;
-}
-
-.boutique p{
-  line-height: 2.5rem;
-	font-weight: 300;
-  letter-spacing: .05rem;
-  text-align: center;
-}
-
-.intro{
-  margin-bottom: 40px;
-}
