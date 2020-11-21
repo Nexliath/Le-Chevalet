@@ -60,7 +60,8 @@
           Perfect ! <br />
         </p>
         <p>
-          Total Price: 156181 € <br /><button class="reservation">
+          Total Price: 156181 € <br />
+          <button class="reservation" @click="pay()">
             Book !
           </button>
         </p>

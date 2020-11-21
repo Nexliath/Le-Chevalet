@@ -122,8 +122,10 @@ var app = new Vue({
         const res = await axios.post('/api/panier/pay')
         this.panier.tableaux.splice(0, this.panier.tableaux.length)
         this.panier.updatedAt = new Date()
+        alert("Thank you for booking")
       } catch (e) {
         router.push('/login')
+        alert("You need to be connected to book")
       }
     },
 
