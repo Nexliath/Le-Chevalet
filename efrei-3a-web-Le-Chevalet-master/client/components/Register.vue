@@ -31,7 +31,7 @@
         <div class="login">
           <div class="in-login" v-if="user === null">
             <form @submit.prevent="submit">
-              <h1>Create an account <span></span></h1>
+              <h1>Create an account<span></span></h1>
               <a href="shop.html#/login" type="button" class="cta-login">Already have an account? Click here</a>
               <input type="email" v-model="email" placeholder="E-mail" required>
               <input type="password" v-model="password" placeholder="Password" required>

@@ -278,53 +278,52 @@ p {
 /* End about-cover Section */
 
 /* Team section*/ 
-.title{
+
+h1{
 	text-transform: uppercase;
 }
 .article-was {
-  text-align: center;
-  padding: 5% 10%;
-
+    text-align: center;
+    padding: 5% 10%;
 }
 
 .article-was {
-  text-align: center;
-  padding: 5% 10%;
-  background: #f5f5f5;
-  margin-bottom: 40px;
-
+    text-align: center;
+    padding: 5% 10%;
+    background: #f5f5f5;
 }
 
-.article-was h1{
-	font-size: 3.7rem;
-  
-}
-  
 .all-article-was {
-  margin-top: 35px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .all-article-was .all-article-was-item {
-  width: 30%;
+    width: 30%;
+}
+
+.all-article-was .all-article-was-item img {
+    width: 100%;
+    margin-bottom: 25px;
+    box-shadow: grey 1px 2px 3px;
+    border-radius: 4%;
 }
 
 .all-article-was .all-article-was-item h3 {
-  margin-bottom: 15px;
-  font-size: 1.7rem;
-
+    margin-bottom: 15px;
+    color: #3131319f;
+    text-decoration: underline;
 }
 
-.all-article-was img{
-	border-radius: 3%;
-  margin-bottom: 40px;
+.all-article-was img {
+    border-radius: 50%;
 }
 
 .all-article-was img:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
+
   /* top-button */
 
 #top-button {
@@ -479,3 +478,4 @@ p {
 span {
 	color: rgb(212, 199, 97);
 }
+
