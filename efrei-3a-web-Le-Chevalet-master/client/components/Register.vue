@@ -5,7 +5,7 @@
       <div class="header container">
         <div class="nav-bar">
           <div class="brand">
-            <a href="home.html">
+            <a href="index.html">
               <h1><span>L</span>e <span>C</span>hevalet</h1>
             </a>
           </div>
