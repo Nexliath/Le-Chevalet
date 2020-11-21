@@ -21,7 +21,7 @@
               </li>
               <li>
                 <a href="shop.html#/panier" data-after="Panier"
-                  ><i class="fas fa-shopping-cart"></i>Booking</a
+                  ><i class="fas fa-shopping-cart"></i> Booking</a
                 >
               </li>
               <li>

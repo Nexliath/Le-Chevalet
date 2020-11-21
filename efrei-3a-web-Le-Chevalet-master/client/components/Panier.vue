@@ -20,12 +20,12 @@
               </li>
               <li>
                 <a href="shop.html#/panier" data-after="paintings"
-                  ><i class="fas fa-shopping-cart" id="here"></i> Panier</a
+                  ><i class="fas fa-shopping-cart" id="here"></i> Booking</a
                 >
               </li>
               <li>
                 <a href="shop.html#/login" data-after="paintings"
-                  ><i class="fas fa-user-alt"></i>Connection</a
+                  ><i class="fas fa-user-alt"></i> Connection</a
                 >
               </li>
               <li><a href="shop.html#/about" data-after="About"><i class="fas fa-gavel" ></i> About Us</a></li>
