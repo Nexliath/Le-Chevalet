@@ -69,31 +69,18 @@
         <!-- End description of the collection  -->
       </div>
       <!-- Beginning of the shop layout  -->
-      <div
-        v-for="tableau in tableaux_panier"
-        :key="tableau.id"
-        class="container-panier"
-      >
+      <div v-for="tableau in tableaux_panier" :key="tableau.id" class="container-panier">
         <div class="content-panier">
           <div class="content-overlay-panier"></div>
-          <img class="content-image" :src="tableau.image" />
-          <div
-            class="content-details fadeIn-top"
-            v-if="editingTableau.id !== tableau.id"
-          >
-            <h3>{{ tableau.name }} | {{ tableau.painter }}</h3>
-            <p>Price: {{ tableau.price * tableau.quantity }} €</p>
-            <p>Quantity : {{ tableau.quantity }}</p>
-            <div class="button-action">
-              <button class="modify" @click="editTableau(tableau)">
-                Modify Quantity
-              </button>
-              <button
-                class="remove-basket"
-                @click="removeFromPanier(tableau.id)"
-              >
-                Delete from basket
-              </button>
+            <img class="content-image" :src="tableau.image" />
+            <div class="content-details fadeIn-top" v-if="editingTableau.id !== tableau.id">
+              <h3>{{ tableau.name }} | {{ tableau.painter }}</h3>
+              <p>Price: {{ tableau.price * tableau.quantity }} €</p>
+              <p>Quantity : {{ tableau.quantity }}</p>
+              <div class="button-action">
+                <button class="modify" @click="editTableau(tableau)">Modify Quantity</button>
+                <button class="remove-basket" @click="removeFromPanier(tableau.id)">Delete from basket</button>
+              </div>
             </div>
           </div>
           <!-- End of the shop layout  -->
@@ -101,17 +88,10 @@
           <div class="content-details fadeIn-top" v-else>
             <h3>{{ tableau.name }} | {{ tableau.painter }}</h3>
             <p>Price: {{ tableau.price * tableau.quantity }} €</p>
-            <p>
-              Quantity :
-              <input type="number" v-model="editingTableau.quantity" />
-            </p>
+            <p>Quantity :<input type="number" v-model="editingTableau.quantity" /></p>
             <div class="button-action">
-              <button class="validate" @click="abortEditQuantity()">
-                Discard
-              </button>
-              <button class="add-basket" @click="sendEditQuantity()">
-                Confirm
-              </button>
+              <button class="validate" @click="abortEditQuantity()">Discard</button>
+              <button class="add-basket" @click="sendEditQuantity()">Confirm</button>
             </div>
           </div>
           <!-- End of the shop modify layout  -->

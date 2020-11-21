@@ -5,30 +5,16 @@
       <div class="header container">
         <div class="nav-bar">
           <div class="brand">
-            <a href="index.html">
-              <h1><span>L</span>e <span>C</span>hevalet</h1>
-            </a>
+            <a href="index.html"><h1><span>L</span>e <span>C</span>hevalet</h1></a>
           </div>
           <div class="nav-list">
             <div class="hamburger">
               <div class="bar"></div>
             </div>
             <ul>
-              <li>
-                <a href="shop.html#/collection" data-after="Collection"
-                  ><i class="fas fa-palette" id="here"></i> Collection</a
-                >
-              </li>
-              <li>
-                <a href="shop.html#/panier" data-after="Panier"
-                  ><i class="fas fa-shopping-cart"></i> Booking</a
-                >
-              </li>
-              <li>
-                <a href="shop.html#/login" data-after="Connexion"
-                  ><i class="fas fa-user-alt"></i> Login</a
-                >
-              </li>
+              <li><a href="shop.html#/collection" data-after="Collection"><i class="fas fa-palette" id="here"></i> Collection</a></li>
+              <li><a href="shop.html#/panier" data-after="Panier"><i class="fas fa-shopping-cart"></i> Booking</a></li>
+              <li><a href="shop.html#/login" data-after="Connexion"><i class="fas fa-user-alt"></i> Login</a></li>
               <li><a href="shop.html#/about" data-after="About"><i class="fas fa-gavel" ></i> About Us</a></li>
             </ul>
           </div>
@@ -49,56 +35,29 @@
     </section>
     <!-- collection-cover Section  -->
 
-    
-
-    
+    <!-- Paintings Section  -->
 
     <div class="boutique">
       <div class="intro" id="intro">
         <h1>Pa<span>i</span>nting l<span>i</span>st</h1>
         <!-- description of the collection  -->
-        <p>
-          Discover our wide choice of paints. <br> Choose from the largest collection ever assembled in the history of mankind.
-        </p>
+        <p>Discover our wide choice of paints. <br> Choose from the largest collection ever assembled in the history of mankind.</p>
         <!-- End description of the collection  -->
       </div>
       <!-- Beginning of the shop layout  -->
-      <div
-        v-for="tableau in tableaux"
-        :key="tableau.id"
-        class="container-painting"
-      >
+      <div v-for="tableau in tableaux" :key="tableau.id" class="container-painting">
         <div class="content">
           <div class="content-overlay"></div>
           <img class="content-image" :src="tableau.image" />
-          <div
-            class="content-details fadeIn-top"
-            v-if="editingTableau.id !== tableau.id"
-          >
+          <div class="content-details fadeIn-top" v-if="editingTableau.id !== tableau.id">
             <h3>{{ tableau.name }} | {{ tableau.date }}</h3>
             <p>By {{ tableau.painter }}, movement: {{ tableau.movement }}</p>
             <p>Pr<span>i</span>ce: {{ tableau.price }} €</p>
             <div class="button-action">
-              <button class="delete" @click="deleteTableau(tableau.id)">
-                Delete
-              </button>
-              <button class="modify" @click="editTableau(tableau)">
-                Modify 
-              </button>
-              <button
-                class="remove-basket"
-                v-if="isInPanier(tableau.id)"
-                @click="removeFromPanier(tableau.id)"
-              >
-                Cancel the booking
-              </button>
-              <button
-                class="add-basket"
-                v-else="isInPanier(tableau.id)"
-                @click="addToPanier(tableau.id)"
-              >
-                Book it
-              </button>
+              <button class="delete" @click="deleteTableau(tableau.id)">Delete</button>
+              <button class="modify" @click="editTableau(tableau)">Modify</button>
+              <button class="remove-basket" v-if="isInPanier(tableau.id)" @click="removeFromPanier(tableau.id)">Cancel the booking</button>
+              <button class="add-basket" v-else="isInPanier(tableau.id)" @click="addToPanier(tableau.id)">Book it</button>
             </div>
           </div>
           <!-- End of the shop layout  -->
@@ -114,12 +73,8 @@
             </p>
             <p><input type="number" v-model="editingTableau.price" /> €</p>
             <div class="button-action">
-              <button class="delete" @click="abortEditTableau()">
-                Discard
-              </button>
-              <button class="add-basket" @click="sendEditTableau()">
-                Confirm
-              </button>
+              <button class="delete" @click="abortEditTableau()">Discard</button>
+              <button class="add-basket" @click="sendEditTableau()">Confirm</button>
             </div>
           </div>
           <!-- End of the shop modify layout  -->
@@ -133,59 +88,22 @@
         <h3>Add a new paint<span>i</span>ng</h3>
         <h4>Please fill this form</h4>
         <fieldset>
-          <input
-            placeholder="Painting's name"
-            v-model="newTableau.name"
-            type="text"
-            tabindex="1"
-            required
-            autofocus
-          />
+          <input placeholder="Painting's name" v-model="newTableau.name" type="text" tabindex="1" required autofocus/>
         </fieldset>
         <fieldset>
-          <input
-            placeholder="Painter's name"
-            v-model="newTableau.painter"
-            type="text"
-            tabindex="2"
-            required
-          />
+          <input placeholder="Painter's name" v-model="newTableau.painter" type="text" tabindex="2" required/>
         </fieldset>
         <fieldset>
-          <input
-            placeholder="Movement type"
-            v-model="newTableau.movement"
-            type="text"
-            tabindex="3"
-            required
-          />
+          <input placeholder="Movement type" v-model="newTableau.movement" type="text" tabindex="3" required/>
         </fieldset>
         <fieldset>
-          <input
-            placeholder="Painting's date"
-            v-model="newTableau.date"
-            type="number"
-            tabindex="4"
-            required
-          />
+          <input placeholder="Painting's date" v-model="newTableau.date" type="number" tabindex="4" required/>
         </fieldset>
         <fieldset>
-          <input
-            placeholder="Painting's link picture"
-            v-model="newTableau.image"
-            type="text"
-            tabindex="5"
-            required
-          />
+          <input placeholder="Painting's link picture" v-model="newTableau.image" type="text" tabindex="5" required/>
         </fieldset>
         <fieldset>
-          <input
-            placeholder="Price"
-            v-model="newTableau.price"
-            type="number"
-            tabindex="6"
-            required
-          />
+          <input placeholder="Price" v-model="newTableau.price" type="number" tabindex="6" required/>
         </fieldset>
         <fieldset>
           <button type="submit">Add the painting</button>

@@ -14,21 +14,9 @@
               <div class="bar"></div>
             </div>
             <ul>
-              <li>
-                <a href="shop.html#/collection" data-after="Collection"
-                  ><i class="fas fa-palette"></i> Collection</a
-                >
-              </li>
-              <li>
-                <a href="shop.html#/panier" data-after="Panier"
-                  ><i class="fas fa-shopping-cart"></i> Booking</a
-                >
-              </li>
-              <li>
-                <a href="shop.html#/login" data-after="Connexion"
-                  ><i class="fas fa-user-alt"></i> Login</a
-                >
-              </li>
+              <li><a href="shop.html#/collection" data-after="Collection"><i class="fas fa-palette"></i> Collection</a></li>
+              <li><a href="shop.html#/panier" data-after="Panier"><i class="fas fa-shopping-cart"></i> Booking</a></li>
+              <li><a href="shop.html#/login" data-after="Connexion"><i class="fas fa-user-alt"></i> Login</a></li>
               <li><a href="shop.html#/about" data-after="About"><i class="fas fa-gavel" id="here"></i> About Us</a></li>
             </ul>
           </div>
@@ -54,21 +42,15 @@
     <p>Meet us !</p>
     <div class="all-article-was">
       <div class="all-article-was-item">
-        <a href="https://www.facebook.com/victor.grnr"><img src="img/about/victor-about.jpg"
-            alt="Garnier Victor picture"></a>
+        <a href="https://www.facebook.com/victor.grnr"><img src="img/about/victor-about.jpg" alt="Garnier Victor picture"></a>
         <h3 class="sous-titre">Victor <span>GARNIER</span> | Project Manager</h3>
-        <p>GARNIER Victor was born in Paris, in 1999. In this project, he worked on all the
-          design and the code structure.
-        </p>
+        <p>GARNIER Victor was born in Paris, in 1999. In this project, he worked on all the design and the code structure.</p>
       </div>
       <div class="all-article-was-item">
-        <a href="https://www.facebook.com/victorine.richard.9"><img src="img/about/victorine-about.jpg"
-            alt="RICHARD Victorine picture"></a>
+        <a href="https://www.facebook.com/victorine.richard.9"><img src="img/about/victorine-about.jpg" alt="RICHARD Victorine picture"></a>
         <h3 class="sous-titre">Victorine <span>RICHARD</span> | Designer</h3>
-        <p>Victorine Richard was born on May 14, 2000 in Paris. 
-          She has a real passion for art history and art in general.</p>
+        <p>Victorine Richard was born on May 14, 2000 in Paris. She has a real passion for art history and art in general.</p>
       </div>
-
     </div>
   </div>
   <!-- End What about us Section  -->
