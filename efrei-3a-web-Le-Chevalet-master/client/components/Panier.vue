@@ -28,11 +28,7 @@
                   ><i class="fas fa-user-alt"></i> Connexion</a
                 >
               </li>
-              <li>
-                <a href="aboutus.html" data-after="About"
-                  ><i class="fas fa-gavel"></i> About</a
-                >
-              </li>
+              <li><a href="shop.html#/about" data-after="About"><i class="fas fa-gavel" ></i> About Us</a></li>
             </ul>
           </div>
         </div>

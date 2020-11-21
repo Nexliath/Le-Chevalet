@@ -17,7 +17,7 @@
               <li><a href="shop.html#/collection" data-after="Collection"><i class="fas fa-palette"></i> Collection</a>
               <li><a href="shop.html#/panier" data-after="Panier"><i class="fas fa-shopping-cart"></i> Panier</a></li>
               <li><a href="shop.html#/login" data-after="Connexion"><i class="fas fa-user-alt" id="here"></i> Connexion</a></li>
-              <li><a href="aboutus.html" data-after="About"><i class="fas fa-gavel" ></i> About</a></li>
+              <li><a href="shop.html#/about" data-after="About"><i class="fas fa-gavel" ></i> About Us</a></li>
             </ul>
           </div>
         </div>
