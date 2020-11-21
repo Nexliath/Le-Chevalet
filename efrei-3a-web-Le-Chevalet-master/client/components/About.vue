@@ -16,17 +16,17 @@
             <ul>
               <li>
                 <a href="shop.html#/collection" data-after="Collection"
-                  ><i class="fas fa-palette"></i> Collection</a
+                  ><i class="fas fa-palette"></i>Collection</a
                 >
               </li>
               <li>
                 <a href="shop.html#/panier" data-after="Panier"
-                  ><i class="fas fa-shopping-cart"></i> Panier</a
+                  ><i class="fas fa-shopping-cart"></i>Booking</a
                 >
               </li>
               <li>
                 <a href="shop.html#/login" data-after="Connexion"
-                  ><i class="fas fa-user-alt"></i> Connexion</a
+                  ><i class="fas fa-user-alt"></i>Connection</a
                 >
               </li>
               <li><a href="shop.html#/about" data-after="About"><i class="fas fa-gavel" id="here"></i> About Us</a></li>
@@ -51,9 +51,7 @@
     <!-- What about us Section  -->
   <div class="article-was" id="article-was">
     <h1 class="title"><span>O</span>ur <span>T</span>eam</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum deleniti maiores pariatur assumenda quas magni
-      et, doloribus quod voluptate quasi molestiae magnam officiis dolorum, dolor provident atque molestias voluptatum
-      explicabo!</p>
+    <p>Meet us !</p>
     <div class="all-article-was">
       <div class="all-article-was-item">
         <a href="https://www.facebook.com/victor.grnr"><img src="img/about/victor-about.jpg"

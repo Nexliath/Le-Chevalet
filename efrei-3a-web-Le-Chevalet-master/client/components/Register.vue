@@ -15,8 +15,8 @@
             </div>
             <ul>
               <li><a href="shop.html#/collection" data-after="Collection"><i class="fas fa-palette"></i> Collection</a>
-              <li><a href="shop.html#/panier" data-after="Panier"><i class="fas fa-shopping-cart"></i> Panier</a></li>
-              <li><a href="shop.html#/login" data-after="Connexion"><i class="fas fa-user-alt" id="here"></i> Connexion</a></li>
+              <li><a href="shop.html#/panier" data-after="Panier"><i class="fas fa-shopping-cart"></i> Basket</a></li>
+              <li><a href="shop.html#/login" data-after="Connexion"><i class="fas fa-user-alt" id="here"></i> Connection</a></li>
               <li><a href="shop.html#/about" data-after="About"><i class="fas fa-gavel" ></i> About Us</a></li>
             </ul>
           </div>
@@ -41,7 +41,7 @@
          </div>
          <div v-else>
       <h1>Welcome {{user.email}}<span></span></h1>
-        <p> <button @click="logout()">Se déconnecter</button></p>
+        <p> <button @click="logout()">Logout</button></p>
     </div>
         </div>
       </div>  

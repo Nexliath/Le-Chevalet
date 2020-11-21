@@ -21,12 +21,12 @@
               </li>
               <li>
                 <a href="shop.html#/panier" data-after="Panier"
-                  ><i class="fas fa-shopping-cart"></i> Panier</a
+                  ><i class="fas fa-shopping-cart"></i>Booking</a
                 >
               </li>
               <li>
                 <a href="shop.html#/login" data-after="Connexion"
-                  ><i class="fas fa-user-alt" id="here"></i> Connexion</a
+                  ><i class="fas fa-user-alt" id="here"></i> Connection</a
                 >
               </li>
               <li><a href="shop.html#/about" data-after="About"><i class="fas fa-gavel" ></i> About Us</a></li>
@@ -53,7 +53,7 @@
     </div>
     <div v-else>
       <h1>Welcome {{user.email}}</h1>
-        <p> <button @click="logout()">Se déconnecter</button></p>
+        <p> <button @click="logout()">Logout</button></p>
     </div>
   </div>
       </div>
