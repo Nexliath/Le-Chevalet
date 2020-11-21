@@ -39,6 +39,7 @@
   padding: 1em 0;
   float: left;
   width: 50%;
+  background-color: white;
 }
 @media screen and (max-width: 640px){
   .container-panier{
@@ -221,3 +222,9 @@
 	margin: 5px;
 	border: #1a1a1a solid 1px;
 }
+.boutique{
+  margin-bottom: 700px;
+}
+
+
+  

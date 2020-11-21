@@ -40,9 +40,12 @@
             </form>
          </div>
          <div v-else>
-      <h1>Welcome {{user.email}}<span></span></h1>
-        <p> <button @click="logout()">Logout</button></p>
-    </div>
+            <h1>Welcome !<span></span></h1>
+            <div class="connected-center">
+              <p>{{ user.email }}</p>
+              <button class="disconnect" @click="logout()" >Logout</button>
+            </div>
+          </div>
         </div>
       </div>  
     </section>
@@ -50,6 +53,7 @@
 </template>
 
 <script>
+
 module.exports = {
   props: {
     tableaux: { type: Array, default: [] },
@@ -78,6 +82,24 @@ module.exports = {
 };
 </script>
 <style scoped>
+
+.disconnect:hover{
+  cursor: pointer;
+  background-color: rgb(224, 117, 117);
+  transition: 0.5s ease;
+}
+.connected-center {
+  text-align: center;
+}
+
+.connected-center p{
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 20px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
+
 .mismatch {
   border-color: red;
 }

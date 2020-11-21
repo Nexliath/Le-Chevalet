@@ -20,15 +20,19 @@
               </li>
               <li>
                 <a href="shop.html#/panier" data-after="paintings"
-                  ><i class="fas fa-shopping-cart" id="here"></i> Panier</a
+                  ><i class="fas fa-shopping-cart" id="here"></i> Booking</a
                 >
               </li>
               <li>
                 <a href="shop.html#/login" data-after="paintings"
-                  ><i class="fas fa-user-alt"></i>Connection</a
+                  ><i class="fas fa-user-alt"></i> Connection</a
                 >
               </li>
-              <li><a href="shop.html#/about" data-after="About"><i class="fas fa-gavel" ></i> About Us</a></li>
+              <li>
+                <a href="shop.html#/about" data-after="About"
+                  ><i class="fas fa-gavel"></i> About Us</a
+                >
+              </li>
             </ul>
           </div>
         </div>
@@ -41,23 +45,26 @@
         <div>
           <h1>content basket <span></span></h1>
           <br />
-          <a href="#article-was" type="button" class="cta">Access to it</a>
+          <a href="#intro" type="button" class="cta">Access to it</a>
         </div>
       </div>
     </section>
     <!-- End about-us-cover Section  -->
 
     <div class="boutique">
-      <div class="intro">
+      <div class="intro" id="intro">
         <h1>yo<span>u</span>r bask<span>e</span>t</h1>
         <!-- description of the collection  -->
         <p>
-          Have you made your choice? <br> Perfect ! <br> 
+          Have you made your choice? <br />
+          Perfect ! <br />
         </p>
         <p>
-          Total Price: 156181 € <br><button class="reservation">Book !</button>
+          Total Price: 156181 € <br /><button class="reservation">
+            Book !
+          </button>
         </p>
-        
+
         <!-- End description of the collection  -->
       </div>
       <!-- Beginning of the shop layout  -->
@@ -74,8 +81,8 @@
             v-if="editingTableau.id !== tableau.id"
           >
             <h3>{{ tableau.name }} | {{ tableau.painter }}</h3>
-            <p>Price: {{ tableau.price * tableau.quantity}} €</p>
-            <p>Quantity : {{tableau.quantity}}</p>
+            <p>Price: {{ tableau.price * tableau.quantity }} €</p>
+            <p>Quantity : {{ tableau.quantity }}</p>
             <div class="button-action">
               <button class="modify" @click="editTableau(tableau)">
                 Modify Quantity
@@ -92,8 +99,11 @@
           <!-- Beginning of the shop modify layout  -->
           <div class="content-details fadeIn-top" v-else>
             <h3>{{ tableau.name }} | {{ tableau.painter }}</h3>
-            <p>Price: {{ tableau.price * tableau.quantity}} €</p>
-            <p>Quantity : <input type="number" v-model="editingTableau.quantity"></p>
+            <p>Price: {{ tableau.price * tableau.quantity }} €</p>
+            <p>
+              Quantity :
+              <input type="number" v-model="editingTableau.quantity" />
+            </p>
             <div class="button-action">
               <button class="validate" @click="abortEditQuantity()">
                 Discard
@@ -115,7 +125,7 @@ module.exports = {
   props: {
     tableaux: { type: Array, default: [] },
     panier: { type: Object },
-    user: { type: Object }
+    user: { type: Object },
   },
   data() {
     return {

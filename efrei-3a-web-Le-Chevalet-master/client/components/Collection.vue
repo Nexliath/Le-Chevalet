@@ -21,7 +21,7 @@
               </li>
               <li>
                 <a href="shop.html#/panier" data-after="Panier"
-                  ><i class="fas fa-shopping-cart"></i>Booking</a
+                  ><i class="fas fa-shopping-cart"></i> Booking</a
                 >
               </li>
               <li>
@@ -43,7 +43,7 @@
         <div>
           <h1>The collection<span></span></h1>
           <br />
-          <a href="#services" type="button" class="cta">Take a look</a>
+          <a href="#intro" type="button" class="cta">Take a look</a>
         </div>
       </div>
     </section>
@@ -54,7 +54,7 @@
     
 
     <div class="boutique">
-      <div class="intro">
+      <div class="intro" id="intro">
         <h1>Pa<span>i</span>nting l<span>i</span>st</h1>
         <!-- description of the collection  -->
         <p>
