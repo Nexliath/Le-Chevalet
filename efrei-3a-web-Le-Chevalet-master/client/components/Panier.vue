@@ -25,7 +25,7 @@
               </li>
               <li>
                 <a href="shop.html#/login" data-after="paintings"
-                  ><i class="fas fa-user-alt"></i> Connexion</a
+                  ><i class="fas fa-user-alt"></i>Connection</a
                 >
               </li>
               <li><a href="shop.html#/about" data-after="About"><i class="fas fa-gavel" ></i> About Us</a></li>
@@ -52,13 +52,10 @@
         <h1>yo<span>u</span>r bask<span>e</span>t</h1>
         <!-- description of the collection  -->
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum
-          deleniti maiores pariatur assumenda quas magni et, doloribus quod
-          voluptate quasi molestiae magnam officiis dolorum, dolor provident
-          atque molestias voluptatum explicabo!
+          Have you made your choice? <br> Perfect ! <br> 
         </p>
         <p>
-          Total Price: 156181 € <br><button class="reservation">Reserver</button>
+          Total Price: 156181 € <br><button class="reservation">Book !</button>
         </p>
         
         <!-- End description of the collection  -->

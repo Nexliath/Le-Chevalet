@@ -21,12 +21,12 @@
               </li>
               <li>
                 <a href="shop.html#/panier" data-after="Panier"
-                  ><i class="fas fa-shopping-cart"></i> Panier</a
+                  ><i class="fas fa-shopping-cart"></i>Booking</a
                 >
               </li>
               <li>
                 <a href="shop.html#/login" data-after="Connexion"
-                  ><i class="fas fa-user-alt" id="here"></i> Connexion</a
+                  ><i class="fas fa-user-alt" id="here"></i> Connection</a
                 >
               </li>
               <li>
@@ -70,7 +70,7 @@
             <h1>Welcome !<span></span></h1>
             <div class="connected-center">
               <p>{{ user.email }}</p>
-              <button class="disconnect" @click="logout()">Se déconnecter</button>
+              <button class="disconnect" @click="logout()">Logout</button>
             </div>
           </div>
         </div>
