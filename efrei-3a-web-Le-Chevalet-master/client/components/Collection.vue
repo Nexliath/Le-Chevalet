@@ -231,7 +231,6 @@ module.exports = {
       isActivated: false,
     };
   },
-
   methods: {
     addTableau() {
       this.$emit("add-tableau", this.newTableau);
@@ -275,5 +274,3 @@ module.exports = {
   },
 };
 </script>
-
-
