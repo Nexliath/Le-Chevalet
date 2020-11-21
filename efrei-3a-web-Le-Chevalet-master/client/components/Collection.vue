@@ -77,27 +77,27 @@
           >
             <h3>{{ tableau.name }} | {{ tableau.date }}</h3>
             <p>By {{ tableau.painter }}, movement: {{ tableau.movement }}</p>
-            <p>Price: {{ tableau.price }} €</p>
+            <p>Pr<span>i</span>ce: {{ tableau.price }} €</p>
             <div class="button-action">
               <button class="delete" @click="deleteTableau(tableau.id)">
                 Delete
               </button>
               <button class="modify" @click="editTableau(tableau)">
-                Modify
+                Modify 
               </button>
               <button
                 class="remove-basket"
                 v-if="isInPanier(tableau.id)"
                 @click="removeFromPanier(tableau.id)"
               >
-                Delete from basket
+                Cancel the booking
               </button>
               <button
                 class="add-basket"
                 v-else="isInPanier(tableau.id)"
                 @click="addToPanier(tableau.id)"
               >
-                Add to basket
+                Book it
               </button>
             </div>
           </div>

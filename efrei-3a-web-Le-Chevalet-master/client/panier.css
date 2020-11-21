@@ -215,12 +215,13 @@
 
 .reservation:hover{
 	cursor: pointer;
-	background-color: rgb(136, 194, 136);
+  background-color: rgb(212, 199, 97);
+  transition: 0.7s ease;
 }
 .reservation{
 
 	margin: 5px;
-	border: #1a1a1a solid 1px;
+  border: #1a1a1a solid 1px;
 }
 .boutique{
   margin-bottom: 700px;

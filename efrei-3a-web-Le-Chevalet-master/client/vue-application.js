@@ -37,7 +37,7 @@ var app = new Vue({
         const res = await axios.get('/api/tableaux')
         this.tableaux = res.data
       } catch (e) {
-        alert("Erreur pour charger les tableaux.")
+        alert("Error to load the paintings tableaux")
       }
     },
     async loadPanier() {
@@ -45,7 +45,7 @@ var app = new Vue({
         const res = await axios.get('/api/panier')
         this.panier = res.data
       } catch (e) {
-        alert("Erreur pour charger le panier.")
+        alert("Error to load the booking basket.")
       }
     },
     async addTableau(tableau) {
@@ -53,7 +53,7 @@ var app = new Vue({
         const res = await axios.post('/api/tableau', tableau)
         this.tableaux.push(res.data)
       } catch (e) {
-        alert("Erreur pour créer le tableau.")
+        alert("Error to create the painting.")
       }
     },
     async updateTableau(newTableau) {
@@ -68,7 +68,7 @@ var app = new Vue({
         tableau.price = newTableau.price
        
       } catch (e) {
-        alert("Erreur pour modifier le tableau.")
+        alert("Error to modify the painting.")
       }
     },
     async deleteTableau(tableauId) {
@@ -89,9 +89,9 @@ var app = new Vue({
         const res = await axios.post('/api/panier', tableau)
         this.panier.tableaux.push(tableau)
         this.panier.updatedAt = new Date()
-        alert("You have added a paiting to basket")
+        alert("You have added a painting to your bookings")
       } catch (e) {
-        alert("Error to add the painting to basket.")
+        alert("Error to add the painting to bookings.")
       }
     },
     async removeFromPanier(tableauId) {
@@ -101,7 +101,7 @@ var app = new Vue({
         this.panier.tableaux.splice(index, 1)
         this.panier.updatedAt = new Date()
       } catch (e) {
-        alert("Error to remove the painting from basket.")
+        alert("Error to remove the painting from bookings.")
       }
     },
     async updatePanier(newTableau) {

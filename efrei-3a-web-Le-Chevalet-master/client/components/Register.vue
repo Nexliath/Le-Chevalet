@@ -15,8 +15,8 @@
             </div>
             <ul>
               <li><a href="shop.html#/collection" data-after="Collection"><i class="fas fa-palette"></i> Collection</a>
-              <li><a href="shop.html#/panier" data-after="Panier"><i class="fas fa-shopping-cart"></i> Basket</a></li>
-              <li><a href="shop.html#/login" data-after="Connexion"><i class="fas fa-user-alt" id="here"></i> Connection</a></li>
+              <li><a href="shop.html#/panier" data-after="Panier"><i class="fas fa-shopping-cart"></i> Booking</a></li>
+              <li><a href="shop.html#/login" data-after="Connexion"><i class="fas fa-user-alt" id="here"></i> Login</a></li>
               <li><a href="shop.html#/about" data-after="About"><i class="fas fa-gavel" ></i> About Us</a></li>
             </ul>
           </div>
@@ -34,8 +34,8 @@
               <h1>Create an account <span></span></h1>
               <a href="shop.html#/login" type="button" class="cta-login">Already have an account? Click here</a>
               <input type="email" v-model="email" placeholder="E-mail" required>
-              <input type="password" v-model="password" placeholder="Mot de passe" required>
-              <input type="password" v-model="passwordConfirmation" placeholder="Confirmation" :class="{ 'mismatch': passwordConfirmation !== password }" required>
+              <input type="password" v-model="password" placeholder="Password" required>
+              <input type="password" v-model="passwordConfirmation" placeholder="Password confirmation" :class="{ 'mismatch': passwordConfirmation !== password }" required>
               <button class="validate" type="submit">Register</button>
             </form>
          </div>
@@ -119,7 +119,7 @@ button {
 input {
   flex-grow: 1;
   flex-basis: 100%;
-  border-radius: 25px;
+  border-radius: 20px;
   background: #ffffff;
   margin-bottom: 25px;
   font-size: 1.5em;
@@ -145,7 +145,9 @@ form {
   border-radius: 25px;
 }
 
-.validate {
-  background-color: lightgreen;
+.validate:hover {
+  cursor: pointer;
+  background-color: rgb(212, 199, 97);
+  transition: 0.7s ease;
 }
 </style>

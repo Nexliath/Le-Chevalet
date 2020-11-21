@@ -25,7 +25,7 @@
               </li>
               <li>
                 <a href="shop.html#/login" data-after="paintings"
-                  ><i class="fas fa-user-alt"></i> Connection</a
+                  ><i class="fas fa-user-alt"></i> Login</a
                 >
               </li>
               <li>
@@ -43,7 +43,7 @@
     <section id="panier-cover">
       <div class="home-cover container">
         <div>
-          <h1>content basket <span></span></h1>
+          <h1>your bookings <span></span></h1>
           <br />
           <a href="#intro" type="button" class="cta">Access to it</a>
         </div>

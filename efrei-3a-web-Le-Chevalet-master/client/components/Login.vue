@@ -26,7 +26,7 @@
               </li>
               <li>
                 <a href="shop.html#/login" data-after="Connexion"
-                  ><i class="fas fa-user-alt" id="here"></i> Connection</a
+                  ><i class="fas fa-user-alt" id="here"></i> Login</a
                 >
               </li>
               <li>
@@ -47,7 +47,7 @@
         <div class="login">
           <div class="in-login" v-if="user === null">
             <form @submit.prevent="submit">
-              <h1>Connect <span></span></h1>
+              <h1>log in <span></span></h1>
               <a href="shop.html#/register" type="button" class="cta-login"
                 >Not registered yet? Click here</a
               >
@@ -60,7 +60,7 @@
               <input
                 type="password"
                 v-model="password"
-                placeholder="Mot de passe"
+                placeholder="Password"
                 required
               />
               <button class="validate" type="submit">Login</button>
@@ -177,8 +177,8 @@ form {
 
 .validate:hover {
   cursor: pointer;
-  background-color: lightgreen;
-  transition: 0.5s ease;
+  background-color: rgb(212, 199, 97);
+  transition: 0.7s ease;
 }
 
 .mismatch {

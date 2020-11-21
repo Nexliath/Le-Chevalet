@@ -90,20 +90,14 @@ h1 {
   .button-action{
     margin-top:20px;
   }
-  .delete:hover {
-	cursor: pointer;
-  }
-
-  .modify:hover {
-	cursor: pointer;
-  }
   
-  .add-basket:hover {
-	cursor: pointer;
-  }
-  
+  .delete:hover, 
+  .add-basket:hover,
+  .modify:hover, 
   .remove-basket:hover {
-	cursor: pointer;
+    cursor: pointer;
+    background-color: rgb(212, 199, 97);
+    transition: 0.7s ease;
   }
   
   .title {
