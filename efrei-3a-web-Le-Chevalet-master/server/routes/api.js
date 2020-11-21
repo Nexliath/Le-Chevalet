@@ -29,6 +29,111 @@ router.use((req, res, next) => {
   next()
 })
 
+router.post('/register', async (req, res) => {
+  const email = req.body.email
+  const password = req.body.password
+
+  // vérification de la validité des données d'entrée
+  if (typeof email !== 'string' || email === '' ||
+      typeof password !== 'string' || password === '') {
+    res.status(400).json({ message: 'bad request' })
+    return
+  }
+
+  const query = await client.query({
+    text: "SELECT * FROM users WHERE email = $1 LIMIT 1",
+    values: [email]
+  })
+
+  if (query.rows.length !== 0) {
+    res.status(400).json({ message: 'email taken' })
+    return
+  }
+
+  const hash = await bcrypt.hash(password, 10)
+
+  await client.query({
+    text: "INSERT INTO users (email, password) VALUES ($1, $2)",
+    values: [email, hash]
+  })
+
+  res.send()
+})
+
+router.post('/login', async (req, res) => {
+  if (req.session.userId !== undefined) {
+    res.status(401).json({ message: 'already logged in' })
+    return
+  }
+
+  const email = req.body.email
+  const password = req.body.password
+
+  // vérification de la validité des données d'entrée
+  if (typeof email !== 'string' || email === '' ||
+      typeof password !== 'string' || password === '') {
+    res.status(400).json({ message: 'bad request' })
+    return
+  }
+
+  const query = await client.query({
+    text: "SELECT * FROM users WHERE email = $1 LIMIT 1",
+    values: [email]
+  })
+
+  if (query.rows.length === 0) {
+    res.status(400).json({ message: 'incorrect credentials' })
+    return
+  }
+
+  const user = query.rows[0]
+  const valid = await bcrypt.compare(password, user.password)
+
+  if (!valid) {
+    res.status(400).json({ message: 'incorrect credentials' })
+    return
+  }
+
+  req.session.userId = user.id
+
+  res.send()
+})
+
+router.post('/logout', async (req, res) => {
+  if (req.session.userId === undefined) {
+    res.status(401).json({ message: 'not logged in' })
+    return
+  }
+
+  delete req.session.userId
+
+  res.send()
+})
+
+router.get('/me', async (req, res) => {
+  if (req.session.userId === undefined) {
+    res.status(401).json({ message: 'not logged in' })
+    return
+  }
+
+  const query = await client.query({
+    text: "SELECT * FROM users WHERE id = $1 LIMIT 1",
+    values: [req.session.userId]
+  })
+
+  if (query.rows.length === 0) {
+    res.status(400).json({ message: 'user no longer existent' })
+    return
+  }
+
+  const user = query.rows[0]
+
+  res.json({
+    id: user.id,
+    email: user.email
+  })
+})
+
 router.route('/panier')
   
   .get((req, res) => {

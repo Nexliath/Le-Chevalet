@@ -28,6 +28,7 @@ var app = new Vue({
   mounted() {
     this.loadTableaux()
     this.loadPanier()
+    this.loadUser()
   },
   methods: {
     async loadTableaux() {
@@ -75,7 +76,7 @@ var app = new Vue({
         const index = this.tableaux.findIndex(a => a.id === tableauId)
         this.tableaux.splice(index, 1)
       } catch (e) {
-        alert("Erreur pour supprimer le tableau.")
+        alert("Error to delete the painting.")
       }
     },
     async addToPanier(tableauId) {
@@ -87,8 +88,9 @@ var app = new Vue({
         const res = await axios.post('/api/panier', tableau)
         this.panier.tableaux.push(tableau)
         this.panier.updatedAt = new Date()
+        alert("You have added a paiting to basket")
       } catch (e) {
-        alert("Erreur pour ajouter le tableau au panier.")
+        alert("Error to add the painting to basket.")
       }
     },
     async removeFromPanier(tableauId) {
@@ -98,7 +100,7 @@ var app = new Vue({
         this.panier.tableaux.splice(index, 1)
         this.panier.updatedAt = new Date()
       } catch (e) {
-        alert("Erreur pour retirer le tableau du panier.")
+        alert("Error to remove the painting from basket.")
       }
     },
     async updatePanier(newTableau) {
@@ -108,9 +110,12 @@ var app = new Vue({
         tableau.quantity = newTableau.quantity
         this.panier.updatedAt = new Date()
       } catch (e) {
-        alert("Erreur pour changer la quantité de tableau.")
+        alert("Error to load painting quantity.")
       }
     },
+
+    // Session login/register/pay/connect
+
     async pay() {
       try {
         const res = await axios.post('/api/panier/pay')
@@ -119,6 +124,40 @@ var app = new Vue({
       } catch (e) {
         router.push('/login')
       }
-    }
+    },
+
+    async register(credentials) {
+      try {
+        await axios.post('/api/register', credentials)
+        await axios.post('/api/login', credentials)
+        await this.loadUser()
+      } catch (e) {
+        alert("Email already taken.")
+      }
+    },
+    async login(credentials) {
+      try {
+        await axios.post('/api/login', credentials)
+        await this.loadUser()
+      } catch (e) {
+        alert("E-mail or password incorrect.")
+      }
+    },
+    async logout() {
+      try {
+        await axios.post('/api/logout')
+        this.user = null
+      } catch (e) {
+        alert("Not connected.")
+      }
+    },
+    async loadUser() {
+      try {
+        const res = await axios.get('/api/me')
+        this.user = res.data
+      } catch (e) {
+        this.user = null
+      }
+    },
   }
 })

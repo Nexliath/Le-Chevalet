@@ -28,42 +28,23 @@
     <!-- login-cover Section  -->
     <section id="login-cover">
       <div class="home-cover container">
-        <div>
-          <h1>Register<span></span></h1>
-          <br />
-          <div>  
-            <div class="col">
-              <input
-                type="text"
-                name="userName"
-                placeholder="Username"
-                v-model="userName"
-                required
-              />
-              <input
-                type="text"
-                name="mail"
-                placeholder="Email"
-                v-model="userEmail"
-                required
-              />
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                v-model="userPassword"
-                required
-              />
-              <input
-                type="submit"
-                value="Register"
-                @click="loginUser(userEmail, userPassword)"
-              />
-            </div>
-          </div>
-          <a href="shop.html#/login" type="button" class="cta-login">Already have an account? Click here</a>
+        <div class="login">
+          <div class="in-login" v-if="user === null">
+            <form @submit.prevent="submit">
+              <h1>Create an account <span></span></h1>
+              <a href="shop.html#/login" type="button" class="cta-login">Already have an account? Click here</a>
+              <input type="email" v-model="email" placeholder="E-mail" required>
+              <input type="password" v-model="password" placeholder="Mot de passe" required>
+              <input type="password" v-model="passwordConfirmation" placeholder="Confirmation" :class="{ 'mismatch': passwordConfirmation !== password }" required>
+              <button class="validate" type="submit">Register</button>
+            </form>
+         </div>
+         <div v-else>
+      <h1>Welcome {{user.email}}<span></span></h1>
+        <p> <button @click="logout()">Se déconnecter</button></p>
+    </div>
         </div>
-      </div>
+      </div>  
     </section>
     <!-- end login-cover Section  -->
 </template>
@@ -73,19 +54,76 @@ module.exports = {
   props: {
     tableaux: { type: Array, default: [] },
     panier: { type: Object },
+    user: { type: Object },
   },
   data() {
     return {
-      userName: "",
-      userEmail: "",
-      userPassword: "",
+      email: "",
+      password: "",
+      passwordConfirmation: "",
     };
   },
-  async mounted() {},
   methods: {
-    registerUser(userEmail, userPassword) {
-      this.$emit("register-user", userEmail, userPassword);
+    submit() {
+      if (this.password !== this.passwordConfirmation) {
+        alert("Both passwords do not match!");
+        return;
+      }
+      this.$emit("register", { email: this.email, password: this.password });
+    },
+    logout() {
+      this.$emit("logout");
     },
   },
 };
 </script>
+<style scoped>
+.mismatch {
+  border-color: red;
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+button {
+  padding: 7.5px 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+input {
+  flex-grow: 1;
+  flex-basis: 100%;
+  border-radius: 25px;
+  background: #ffffff;
+  margin-bottom: 25px;
+  font-size: 1.5em;
+  padding: 0 15px;
+  border: none; 
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 450px;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+}
+
+.in-login {
+  display: flex;
+  padding: 25px;
+  border-radius: 25px;
+}
+
+.validate {
+  background-color: lightgreen;
+}
+</style>

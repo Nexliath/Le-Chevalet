@@ -44,34 +44,22 @@
     <!-- login-cover Section  -->
     <section id="login-cover">
       <div class="home-cover container">
-        <div>
-          <h1>Login<span></span></h1>
-          <br />
-          <div>
-            <div class="col">
-              <input
-                type="text"
-                name="mail"
-                placeholder="Email"
-                v-model="userEmail"
-                required
-              />
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                v-model="userPassword"
-                required
-              />
-              <input
-                type="submit"
-                value="Login"
-                @click="loginUser(userEmail, userPassword)"
-              />
-            </div>
-          </div>
-          <a href="shop.html#/register" type="button" class="cta-login">Not registered yet? Click here</a>
-        </div>
+        <div class="login">
+    <div class="in-login" v-if="user === null">
+      <form @submit.prevent="submit">
+        <h1>Connect <span></span></h1>
+        <a href="shop.html#/register" type="button" class="cta-login">Not registered yet? Click here</a>
+        <input type="email" v-model="email" placeholder="E-mail" required>
+        <input type="password" v-model="password" placeholder="Mot de passe" required>
+        <button class="validate" type="submit">Login</button>
+        
+      </form>
+    </div>
+    <div v-else>
+      <h1>Welcome {{user.email}}</h1>
+        <p> <button @click="logout()">Se déconnecter</button></p>
+    </div>
+  </div>
       </div>
     </section>
     <!-- end login-cover Section  -->
@@ -84,21 +72,88 @@ module.exports = {
   props: {
     tableaux: { type: Array, default: [] },
     panier: { type: Object },
+    user: { type: Object }
   },
   data() {
     return {
-      userEmail: "",
-      userPassword: "",
-    };
+      email: '',
+      password: '',
+    }
   },
-  async mounted() {},
+
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
   methods: {
-    loginUser(userEmail, userPassword) {
-      this.$emit("login-user", userEmail, userPassword);
+    submit() {
+      this.$emit('login', { email: this.email, password: this.password })
     },
-    getUserI(userId) {
-      this.$emit("get-user-id", userEmail, userPassword);
-    },
-  },
+    logout() {
+      this.$emit('logout')
+    }
+  }
 };
 </script>
+
+<style scoped>
+h1 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+button {
+  padding: 7.5px 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+input {
+  flex-grow: 1;
+  flex-basis: 100%;
+  border-radius: 20px;
+  background: #ffffff;
+  margin-bottom: 25px;
+  font-size: 1.5em;
+  padding: 0 15px;
+  border: none;
+  
+
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 380px;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+}
+
+.in-login {
+  display: flex;
+  padding: 25px;
+  border-radius: 25px;
+}
+
+.validate {
+  background-color: #fff;
+  transition: 0.5ms ease;
+}
+
+.validate:hover {
+  cursor: pointer;
+  background-color: lightgreen;
+  transition: .5s ease;
+}
+
+.mismatch {
+  border-color: red;
+}
+</style>

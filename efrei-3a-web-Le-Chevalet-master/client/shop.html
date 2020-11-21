@@ -43,12 +43,17 @@
       <router-view
         :tableaux="tableaux"
         :panier="panier"
+        :user="user"
         @add-tableau="addTableau"
         @delete-tableau="deleteTableau"
         @update-tableau="updateTableau"
         @add-to-panier="addToPanier"
         @remove-from-panier="removeFromPanier"
         @update-panier="updatePanier"
+        @pay="pay"
+        @login="login"
+        @register="register"
+        @logout="logout"
         ></router-view>
     </main>
     <!-- End Content of the wanted Section  -->

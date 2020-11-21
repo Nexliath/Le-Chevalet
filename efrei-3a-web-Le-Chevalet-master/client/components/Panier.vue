@@ -122,6 +122,7 @@ module.exports = {
   props: {
     tableaux: { type: Array, default: [] },
     panier: { type: Object },
+    user: { type: Object }
   },
   data() {
     return {
