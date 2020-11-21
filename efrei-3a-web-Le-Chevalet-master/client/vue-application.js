@@ -132,6 +132,7 @@ var app = new Vue({
         await axios.post('/api/register', credentials)
         await axios.post('/api/login', credentials)
         await this.loadUser()
+        this.$forceUpdate()
       } catch (e) {
         alert("Email already taken.")
       }
@@ -140,6 +141,7 @@ var app = new Vue({
       try {
         await axios.post('/api/login', credentials)
         await this.loadUser()
+        this.$forceUpdate()
       } catch (e) {
         alert("E-mail or password incorrect.")
       }
@@ -148,6 +150,7 @@ var app = new Vue({
       try {
         await axios.post('/api/logout')
         this.user = null
+        this.$forceUpdate()
       } catch (e) {
         alert("Not connected.")
       }

@@ -29,7 +29,11 @@
                   ><i class="fas fa-user-alt" id="here"></i> Connexion</a
                 >
               </li>
-              <li><a href="shop.html#/about" data-after="About"><i class="fas fa-gavel" ></i> About Us</a></li>
+              <li>
+                <a href="shop.html#/about" data-after="About"
+                  ><i class="fas fa-gavel"></i> About Us</a
+                >
+              </li>
             </ul>
           </div>
         </div>
@@ -41,26 +45,39 @@
     <section id="login-cover">
       <div class="home-cover container">
         <div class="login">
-    <div class="in-login" v-if="user === null">
-      <form @submit.prevent="submit">
-        <h1>Connect <span></span></h1>
-        <a href="shop.html#/register" type="button" class="cta-login">Not registered yet? Click here</a>
-        <input type="email" v-model="email" placeholder="E-mail" required>
-        <input type="password" v-model="password" placeholder="Mot de passe" required>
-        <button class="validate" type="submit">Login</button>
-        
-      </form>
-    </div>
-    <div v-else>
-      <h1>Welcome {{user.email}}</h1>
-        <p> <button @click="logout()">Se déconnecter</button></p>
-    </div>
-  </div>
+          <div class="in-login" v-if="user === null">
+            <form @submit.prevent="submit">
+              <h1>Connect <span></span></h1>
+              <a href="shop.html#/register" type="button" class="cta-login"
+                >Not registered yet? Click here</a
+              >
+              <input
+                type="email"
+                v-model="email"
+                placeholder="E-mail"
+                required
+              />
+              <input
+                type="password"
+                v-model="password"
+                placeholder="Mot de passe"
+                required
+              />
+              <button class="validate" type="submit">Login</button>
+            </form>
+          </div>
+          <div v-else>
+            <h1>Welcome !<span></span></h1>
+            <div class="connected-center">
+              <p>{{ user.email }}</p>
+              <button class="disconnect" @click="logout()">Se déconnecter</button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <!-- end login-cover Section  -->
   </div>
-  
 </template>
  
 <script>
@@ -68,33 +85,50 @@ module.exports = {
   props: {
     tableaux: { type: Array, default: [] },
     panier: { type: Object },
-    user: { type: Object }
+    user: { type: Object },
   },
   data() {
     return {
-      email: '',
-      password: '',
-    }
+      email: "",
+      password: "",
+    };
   },
 
   data() {
     return {
-      email: '',
-      password: ''
-    }
+      email: "",
+      password: "",
+    };
   },
   methods: {
     submit() {
-      this.$emit('login', { email: this.email, password: this.password })
+      this.$emit("login", { email: this.email, password: this.password });
     },
     logout() {
-      this.$emit('logout')
-    }
-  }
+      this.$emit("logout");
+    },
+  },
 };
 </script>
 
 <style scoped>
+
+.disconnect:hover{
+  cursor: pointer;
+  background-color: rgb(224, 117, 117);
+  transition: 0.5s ease;
+}
+.connected-center {
+  text-align: center;
+}
+
+.connected-center p{
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 20px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
 h1 {
   text-align: center;
   width: 100%;
@@ -116,8 +150,6 @@ input {
   font-size: 1.5em;
   padding: 0 15px;
   border: none;
-  
-
 }
 
 form {
@@ -140,13 +172,13 @@ form {
 
 .validate {
   background-color: #fff;
-  transition: 0.5ms ease;
+  transition: 0.5s ease;
 }
 
 .validate:hover {
   cursor: pointer;
   background-color: lightgreen;
-  transition: .5s ease;
+  transition: 0.5s ease;
 }
 
 .mismatch {
