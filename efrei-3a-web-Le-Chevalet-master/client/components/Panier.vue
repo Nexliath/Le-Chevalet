@@ -39,7 +39,7 @@
     <section id="panier-cover">
       <div class="home-cover container">
         <div>
-          <h1>content panier <span></span></h1>
+          <h1>content basket <span></span></h1>
           <br />
           <a href="#article-was" type="button" class="cta">Access to it</a>
         </div>
@@ -49,7 +49,7 @@
 
     <div class="boutique">
       <div class="intro">
-        <h1>Pa<span>i</span>nting l<span>i</span>st</h1>
+        <h1>yo<span>u</span>r bask<span>e</span>t</h1>
         <!-- description of the collection  -->
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum
