@@ -58,10 +58,7 @@
         <h1>Pa<span>i</span>nting l<span>i</span>st</h1>
         <!-- description of the collection  -->
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum
-          deleniti maiores pariatur assumenda quas magni et, doloribus quod
-          voluptate quasi molestiae magnam officiis dolorum, dolor provident
-          atque molestias voluptatum explicabo!
+          Discover our wide choice of paints. <br> Choose from the largest collection ever assembled in the history of mankind.
         </p>
         <!-- End description of the collection  -->
       </div>
