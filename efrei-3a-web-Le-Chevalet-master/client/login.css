@@ -112,7 +112,7 @@
 	border: none;
   }
   
-  input {
+  .in-login input {
 	flex-grow: 1;
 	flex-basis: 100%;
 	border-radius: 20px;
