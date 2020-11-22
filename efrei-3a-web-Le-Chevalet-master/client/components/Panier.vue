@@ -59,12 +59,12 @@
           Have you made your choice? <br />
           Perfect ! <br />
         </p>
-        <p>
-          Total Price: 156181 € <br />
+        <div class="button-center">
+          <div class="total-price">Total Price : {{totalItem}} € </div><br />
           <button class="reservation" @click="pay()">
             Book !
           </button>
-        </p>
+        </div>
 
         <!-- End description of the collection  -->
       </div>
@@ -115,6 +115,7 @@ module.exports = {
       },
     };
   },
+
   computed: {
     tableaux_panier() {
       return this.panier.tableaux.map((tableau) => ({
@@ -122,6 +123,14 @@ module.exports = {
         ...this.tableaux.find((a) => a.id === tableau.id),
       }));
     },
+    totalItem: function(){
+      let sum = 0;
+      this.tableaux_panier.forEach(function(tableau) {
+         sum += (parseInt(tableau.price) * parseInt(tableau.quantity));
+      });
+
+     return sum;
+   }
   },
   methods: {
     pay() {

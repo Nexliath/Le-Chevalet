@@ -227,5 +227,14 @@
   margin-bottom: 700px;
 }
 
+.total-price{
+  font-weight: bold;
+  text-align:center;
+  font-size: 17px;
+}
+
+.button-center{
+  text-align: center;
+}
 
   

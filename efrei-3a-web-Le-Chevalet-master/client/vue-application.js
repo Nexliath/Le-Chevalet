@@ -111,6 +111,7 @@ var app = new Vue({
         const tableau = this.panier.tableaux.find(a => a.id === newTableau.id)
         tableau.quantity = newTableau.quantity
         this.panier.updatedAt = new Date()
+        this.$forceUpdate() // we reload the vue component
       } catch (e) {
         alert("Error to load painting quantity.")
       }
