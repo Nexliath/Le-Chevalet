@@ -44,7 +44,7 @@
       <div class="all-article-was-item">
         <a href="https://www.facebook.com/victor.grnr"><img src="img/about/victor-about.jpg" alt="Garnier Victor picture"></a>
         <h3 class="sous-titre">Victor <span>GARNIER</span> | Project Manager</h3>
-        <p>GARNIER Victor was born in Paris, in 1999. In this project, he worked on all the design and the code structure.</p>
+        <p>GARNIER Victor was born in Paris, in 1999. He is passionate about cybersecurity and music instrument such as guitar or piano.</p>
       </div>
       <div class="all-article-was-item">
         <a href="https://www.facebook.com/victorine.richard.9"><img src="img/about/victorine-about.jpg" alt="RICHARD Victorine picture"></a>
