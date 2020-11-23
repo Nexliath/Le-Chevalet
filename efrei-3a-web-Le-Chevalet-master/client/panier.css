@@ -1,240 +1,255 @@
 /* -------------------------------------------- Boutique - Solo panier parameter ---------------------------------------------- */
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 
-*, *:before, *:after{
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing:border-box;
-  box-sizing: border-box;
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.boutique h1{
-  margin-top:40px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 35px;
-  text-transform: uppercase;
+.boutique h1 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 35px;
+    text-transform: uppercase;
 }
 
-.boutique p{
-  line-height: 2.5rem;
-	font-weight: 300;
-  letter-spacing: .05rem;
-  text-align: center;
+.boutique p {
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: .05rem;
+    text-align: center;
 }
 
-.intro{
-  margin-bottom: 40px;
+.intro {
+    margin-bottom: 40px;
 }
 
-.main-title{
-  color: #2d2d2d;
-  text-align: center;
-  text-transform: capitalize;
-  padding: 0.7em 0;
+.main-title {
+    color: #2d2d2d;
+    text-align: center;
+    text-transform: capitalize;
+    padding: 0.7em 0;
 }
 
-.container-panier{
-  padding: 1em 0;
-  float: left;
-  width: 50%;
-  background-color: white;
-}
-@media screen and (max-width: 640px){
-  .container-panier{
-    display: block;
-    width: 100%;
-  }
+.container-panier {
+    padding: 1em 0;
+    float: left;
+    width: 50%;
+    background-color: white;
 }
 
-@media screen and (min-width: 900px){
-  .container-panier{
-    width: 33.33333%;
-  }
+@media screen and (max-width: 640px) {
+    .container-panier {
+        display: block;
+        width: 100%;
+    }
 }
 
-.container-panier .title{
-  color: #1a1a1a;
-  text-align: center;
-  margin-bottom: 10px;
+@media screen and (min-width: 900px) {
+    .container-panier {
+        width: 33.33333%;
+    }
+}
+
+.container-panier .title {
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .content-panier {
-  position: relative;
-  width: 90%;
-  max-width: 400px;
-  margin: auto;
-  overflow: hidden;
-  box-shadow: 5px 5px 10px rgb(95, 95, 95);
-  
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px rgb(95, 95, 95);
+
 }
 
 .content-button {
-  position: relative;
-  width: 100%;
-  max-width: 260px;
-  margin: auto;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 260px;
+    margin: auto;
+    overflow: hidden;
 }
 
 .content-panier .content-overlay-panier {
-  background: rgba(0,0,0,0.7);
-  position: absolute;
-  height: 99%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  opacity: 0;
-  -webkit-transition: all 0.4s ease-in-out 0s;
-  -moz-transition: all 0.4s ease-in-out 0s;
-  transition: all 0.4s ease-in-out 0s;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    height: 99%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
 }
 
-.content-panier .content-overlay-panier{
-  opacity: 1;
-  border-radius: 2%;
+.content-panier .content-overlay-panier {
+    opacity: 1;
+    border-radius: 2%;
 }
 
-.content-image{
-  width: 100%;
-  height: 300px;
-  border-radius: 2%;
+.content-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 2%;
 }
 
 .content-details {
-  position: absolute;
-  text-align: center;
-  padding-left: 1em;
-  padding-right: 1em;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  opacity: 0;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  -moz-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
+    position: absolute;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
 }
 
-.content-panier .content-details{
-  top: 50%;
-  left: 50%;
-  opacity: 1;
+.content-panier .content-details {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
 }
 
-.content-details h3{
-  color: #fff;
-  font-size: 18px;
-  letter-spacing: 0.15em;
-  margin-bottom: 0.5em;
-  text-transform: uppercase;
+.content-details h3 {
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
 }
 
-.content-details p{
-  color: #fff;
-  font-size: 12.5px;}
-
-.fadeIn-top{
-  top: 20%;
+.content-details p {
+    color: #fff;
+    font-size: 12.5px;
 }
+
+.fadeIn-top {
+    top: 20%;
+}
+
 /* End Article img Section */
 
 /* panier-cover Section */
 #panier-cover {
-	background-image: url(./img/panier/cover.jpg);
-	background-size: cover;
-	background-position: top center;
-	position: relative;
-	z-index: 1;
+    background-image: url(./img/panier/cover.jpg);
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
 }
+
 #panier-cover::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background-color: black;
-	opacity: .7;
-	z-index: -1;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: .7;
+    z-index: -1;
 }
+
 #panier-cover .panier-cover {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 50px;
-	justify-content: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    justify-content: flex-start;
 }
+
 #panier-cover h1 {
-	display: block;
-	width: fit-content;
-	font-size: 3.5rem;
-	text-transform: uppercase;
-	position: relative;
-	color: transparent;
-	animation: text_reveal .5s ease forwards;
-	animation-delay: 1s;
+    display: block;
+    width: fit-content;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    position: relative;
+    color: transparent;
+    animation: text_reveal .5s ease forwards;
+    animation-delay: 1s;
 }
+
 #panier-cover h1:nth-child(1) {
-	animation-delay: 1s;
+    animation-delay: 1s;
 }
+
 #panier-cover h1:nth-child(2) {
-	animation-delay: 2s;
+    animation-delay: 2s;
 }
+
 #panier-cover h1:nth-child(3) {
-	animation: text_reveal_name .5s ease forwards;
-	animation-delay: 3s;
+    animation: text_reveal_name .5s ease forwards;
+    animation-delay: 3s;
 }
+
 #panier-cover h1 span {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 0;
-	background-color: rgb(212, 199, 97);
-	animation: text_reveal_box 1s ease;
-	animation-delay: .5s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: rgb(212, 199, 97);
+    animation: text_reveal_box 1s ease;
+    animation-delay: .5s;
 }
+
 #panier-cover h1:nth-child(1) span {
-	animation-delay: .5s;
+    animation-delay: .5s;
 }
+
 #panier-cover h1:nth-child(2) span {
-	animation-delay: 1.5s;
+    animation-delay: 1.5s;
 }
+
 #panier-cover h1:nth-child(3) span {
-	animation-delay: 2.5s;
+    animation-delay: 2.5s;
 }
 
 /* End panier-cover Section */
 
 /*Reservation */
 
-.reservation:hover{
-	cursor: pointer;
-  background-color: rgb(212, 199, 97);
-  transition: 0.7s ease;
-}
-.reservation{
-
-	margin: 5px;
-  border: #1a1a1a solid 1px;
-}
-.boutique{
-  margin-bottom: 700px;
+.reservation:hover {
+    cursor: pointer;
+    background-color: rgb(212, 199, 97);
+    transition: 0.7s ease;
 }
 
-.total-price{
-  font-weight: bold;
-  text-align:center;
-  font-size: 17px;
+.reservation {
+
+    margin: 5px;
+    border: #1a1a1a solid 1px;
 }
 
-.button-center{
-  text-align: center;
+.boutique {
+    margin-bottom: 700px;
 }
 
-  
+.total-price {
+    font-weight: bold;
+    text-align: center;
+    font-size: 17px;
+}
+
+.button-center {
+    text-align: center;
+}
